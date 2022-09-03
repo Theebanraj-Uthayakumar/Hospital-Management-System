@@ -33,14 +33,11 @@ const DoctorsSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    selectedFile: String,
-    // likeCont: {
-    //     type: Number,
-    //     default: 0
-    // },
-    createdAt: {
-        type: Date,
-        default: Date.now
+    selectedFile: {
+        type: String,
+    },
+    cloudinary_id: {
+        type: String,
     },
 })
 
