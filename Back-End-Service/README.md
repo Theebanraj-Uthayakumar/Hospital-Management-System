@@ -23,5 +23,8 @@ SLIIIT || 3rd Year 2nd Semester || Model Code - SE3080
 ```
 PORT=6000
 MONGO_URL=mongodb+srv://Theebanraj:Lucifer2022@cluster0.jqhf1.mongodb.net/?retryWrites=true&w=majority
+CLOUDINARY_CLOUD_NAME=cloudbucket
+CLOUDINARY_API_KEY=583638378746911
+CLOUDINARY_API_SECRET=ZnezkYnCUErerhatAXaH1OL3njA
 
 ```
