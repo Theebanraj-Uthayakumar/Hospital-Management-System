@@ -1,0 +1,40 @@
+#rectangle_18 {
+  top: 10px;
+  left: 10px;
+  width: 1293px;
+  height: 340px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -ms-box-shadow: -10px -10px 24px 1px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: -10px -10px 24px 1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -10px -10px 24px 1px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -10px -10px 24px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: -10px -10px 24px 1px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+#rectangle_19 {
+  top: 0px !important;
+  position: absolute !important;
+  left: 0px;
+  width: 573px;
+  height: 340px;
+  /* background: url(skins/rectangle_19.png); */
+  background-size: cover;
+}
+
+#operation_theatre {
+  top: 130px;
+  left: 821px;
+  width: 233px;
+  height: 47.5px;
+  overflow: hidden;
+  font-family: IBM Plex Sans;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center;
+  color: #000000;
+}
