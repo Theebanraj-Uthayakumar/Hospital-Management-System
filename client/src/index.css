@@ -1,0 +1,664 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  font-family: "Poppins", sans-serif;
+}
+
+/* <<<<<<< Form-Theeban */
+.container_footer {
+  max-width: 1100px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+}
+.coninfo {
+  color: #bbbbbb;
+}
+.footer {
+  background-color: #001730;
+  padding: 70px 0;
+  border-top-right-radius: 250px;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 20px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  font-family: Roboto, sans-serif;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #4ad7d1;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 23px;
+}
+.contact-info {
+  color: #bbbbbb;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 23px;
+}
+.footer-col ul li a:hover {
+  color: #4ad7d1;
+  padding-left: 8px;
+  /* ======= */
+  /* code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.container_footer {
+  max-width: 1100px;
+  margin: auto;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+ul {
+  list-style: none;
+}
+.coninfo {
+  color: #bbbbbb;
+}
+.footer {
+  background-color: #001730;
+  padding: 70px 0;
+  border-top-right-radius: 250px;
+}
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4 {
+  font-size: 20px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+  font-family: Roboto, sans-serif;
+}
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #4ad7d1;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+.footer-col ul li a {
+  font-size: 15px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 400;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 23px;
+}
+.contact-info {
+  color: #bbbbbb;
+  font-size: 15px;
+  text-transform: capitalize;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  line-height: 23px;
+}
+.footer-col ul li a:hover {
+  color: #4ad7d1;
+  padding-left: 8px; */
+  /* >>>>>>> main */
+}
+
+/*responsive*/
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+.afterfooter {
+  color: #bbbbbb;
+  align-items: center;
+}
+.afterfooter h4 {
+  color: white;
+}
+.afterfooter .social-links-afterfooter a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+.afterfooter .social-links-afterfooter .l1:hover {
+  color: #24262b;
+  background-color: #4267b2;
+}
+.afterfooter .social-links-afterfooter .l2:hover {
+  color: #24262b;
+  background-color: #8a3ab9;
+}
+.afterfooter .social-links-afterfooter .l3:hover {
+  color: #24262b;
+  background-color: #00acee;
+}
+.afterfooter .social-links-afterfooter .l4:hover {
+  color: #24262b;
+  background-color: #0e76a8;
+}
+.footer_2nd {
+  color: #bbbbbb;
+}
+img {
+  border-radius: 4px;
+}
+.social-links {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.Navbar {
+  background-color: black;
+}
+/* Home Page Css */
+.home1 {
+  font-size: 6vw;
+  margin-left: 30px;
+  font-family: lyncer;
+}
+.Home_1 {
+  padding-top: 30px;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+.home1_link {
+  margin-left: 30px;
+}
+.home2_heading {
+  padding-top: 30px;
+  font-size: 6vw;
+  text-align: center;
+  font-family: lyncer;
+}
+.home4_link {
+  width: 50%;
+}
+.home4_left {
+  text-align: right;
+  padding-right: 30px;
+  font-size: 5vw;
+}
+.home4_right {
+  padding-top: 50px;
+  margin-top: 50px;
+}
+.home4_img {
+  width: 30%;
+  text-align: right;
+  align-items: right;
+}
+
+.ambulance {
+  height: 250px;
+  width: 250px;
+  /* margin:5px 5px 5px -5px; */
+}
+.text {
+  /* margin-left: -80px; */
+}
+.ambtitle {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+}
+.ambtable {
+  padding: 5%;
+  border-collapse: collapse;
+}
+.ambform {
+  right: 0%;
+  margin-left: 60%;
+}
+.searchbtn {
+  padding: 5px;
+  text-align: center;
+  height: 40px;
+  width: 100px;
+  background-color: #001730;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+@media (max-width: 100px) {
+  .ambform,
+  .pagi {
+    display: 20%;
+  }
+}
+
+/* sector abi css */
+img {
+  border-radius: 4px;
+}
+.social-links {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+.Navbar {
+  background-color: black;
+}
+.column_hospital {
+  float: left;
+  width: 50%;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row_hospital:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* .img {
+  height: 50%;
+  width: 20%;
+} */
+
+input.form-control {
+  width: 200px;
+}
+
+.searchit {
+  display: block;
+  width: 20%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.home_slider{
+  margin-top: 70px;
+  background-color: #dbdbdb;
+  padding-top: 50px;
+  padding-bottom: 90px;
+}
+/* shothri 1st page*/
+.backround{
+  background-image: url(https://img.freepik.com/free-vector/caduceus-medical-symbol-abstract-geometric-with-medicine-science-concept-background_41814-395.jpg?size=626&ext=jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  }
+  .heading{
+    font-size: 22px;
+  text-align: center; 
+  background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2020/03/iStock-1165046681-3-1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  }
+  .searchbar{
+  padding-bottom:-150px;
+  padding-left:650px;
+  width: 1px;
+  margin-left: 500px;
+  float: right;
+  }
+  .pic{
+    margin-right: 750px;
+    padding-right: 500px;
+    padding-bottom: 50px;
+    width: 10px;
+    height: 10%;
+    opacity:80%;
+  }
+  .searchbutton{
+   margin-right: 150px;
+   margin-top: 50px;
+   overflow: hidden;
+   float: right;
+  }
+  .searchbutton input{
+  font-size: 23px;
+  border-radius: 15px;
+  border: 10px solid rgb(148, 150, 150);
+  }
+  .searchbar input{
+  border-radius: 15px;
+  width: 400px;
+  height: 60px; 
+  font-size: 20px;
+  border: 10px solid rgb(148, 150, 150);
+  margin-left: -600px; 
+  margin-top: 50px;
+  }
+  /* shothri 2nd page*/
+  .heading2{
+    text-align: center;
+    width: 1300px;
+    margin-right: 300px;
+    background-image: url(https://www.northeastern.edu/graduate/blog/wp-content/uploads/2020/03/iStock-1165046681-3-1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+  }
+  .img1{
+    width: 182px;
+    height: 273px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 20px;
+  }
+  .details{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    margin-right: 600px;
+    margin-top: -180px;
+    float: right;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 300px;
+    height: 150px; 
+    padding-top: 10px; 
+  }
+  .surgeryname{
+     filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    font-size: 35px;
+    background-color:rgb(228, 224, 224) ;
+    border-radius: 10px;
+    text-align: center;
+    width: 800px;
+    height: 60px;
+    padding-top: 22px;
+    margin-top: 10px;
+    margin-left: 300px;
+  }
+  .details1{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:#ffffff ;
+    float: left;
+    margin-left: 100px;
+    margin-top: 55px;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 350px;
+    height: 180px;  
+    padding-top: 10px;   
+  }
+  .details2{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    float: left;
+    margin-left:250px;
+    margin-top: 53px;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 520px;
+    height: 230px;         
+  }
+  .dreport{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    margin-top: 370px;
+    width: 1330px;
+    height: 60px;
+    text-align: center;
+    font-size: 10px;
+    background-color:rgb(228, 224, 224) ;
+    border-radius: 10px;
+    text-align: center;
+    width: 800px;
+    height: 60px;
+    margin-left: 300px;
+    padding-top: 22px;
+  }
+  .picture{
+    margin-top: 600px;
+    margin-left: 700px;
+  }
+  .img3{
+    width: 182px;
+    height: 241px;
+    margin-left: 100px;
+    margin-top: 50px;
+    border-radius: 20px; 
+    float: left;   
+  }
+  .img4{
+    float: right;
+    width: 185px;
+    height: 241px;
+    margin-right: 760px;
+    margin-top: 50px ;
+    border-radius: 20px;
+  }
+  .checkup{
+    text-align: center;
+    padding-top:20px;
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    margin-left: 830px;
+    margin-top: 300px;
+    text-align: center;
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 420px;
+    height: 120px;        
+  }
+  .doctoradvises{
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 18px;
+    width: 420px;
+    height: 120px;  
+    text-align: center; 
+    padding-top: 20px;  
+    margin-left: 100px;
+  }
+
+  .rating{
+    border: 5px solid rgb(114, 113, 113);
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 35px;
+    margin-left: 900px;
+    margin-top: 0px;
+    width: 150px;
+    text-align: center;
+    height: 50px;
+    padding-top: 12px;
+  }
+  .rating1{
+    border: 5px solid rgb(114, 113, 113);
+    filter: drop-shadow(8px 4px 8px rgba(0, 0, 0, 0.35));
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 50px;
+    margin-left: 1100px;
+    margin-top: -50px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .rating2{
+    background-color:rgb(255, 255, 255) ;
+    border-radius: 20px;
+    font-size: 50px;
+    margin-left: 1100px;
+    margin-top: -50px;
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    padding-top: 15px;
+  }
+.topnav input[type=text]{
+	float:right;
+	padding: 6px;
+	border: black;
+	margin-top: 8px;
+	margin-right: 16px;
+	font-size: 17px;
+}
+/* .image{
+	background: url(a.jpg);
+} */
+
+.rectangle{
+    position: absolute;
+    width: 100%;
+    height:408px;
+    left:0px;
+    /* top: 100px; */
+    border-radius: 50px;
+    background-color: #BDD5D3;
+    background: url("./kapil\ image/a.jpg");
+}
+
+.rectangle img{
+    width: 30%;
+    height: 258px;
+    border-radius: 50px;
+    transform: translate(1250px,200px);
+}
+
+.rectangle p1{
+    position:absolute;
+    width:676px;
+    height:98px;
+    left:350px;
+    /* top:281px; */
+    font-family: Montserrat;
+    font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 49px;
+display: flex;
+align-items: center;
+text-align: right;
+letter-spacing: -0.03em;
+text-transform: capitalize;
+
+
+
+mix-blend-mode: darken;
+
+}
+
+.rectangle p2{
+    position:absolute;
+    width:676px;
+    height:98px;
+    left:720px;
+    top: 50px;
+    font-family: Montserrat;
+    font-style: normal;
+font-weight: bold;
+font-size: 40px;
+line-height: 49px;
+display: flex;
+align-items: center;
+text-align: right;
+letter-spacing: -0.03em;
+text-transform: capitalize;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+.disease-in{
+	/* left:100px; */
+	transform: translate(100px,10px);
+  width:70%;
+}
+
+.uppernav{
+	/* left:100px; */
+	transform: translate(1000px,1000px);
+}
+
+.MuiPagination-ul {
+  justify-content: center;
+}
+.slider_height{
+  height: 400px;
+}
+.slider_height:hover{
+  background-color: #001730;
+  transition-delay:0.2s;
+}
+.home_slider_link:hover{
+  text-decoration: none;
+  color: #fff;
+}
+.home_slider_link_h5:hover{
+  transition-delay:0.2s;
+  color: #fff;
+}
