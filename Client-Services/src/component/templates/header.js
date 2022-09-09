@@ -18,7 +18,7 @@ export default function header() {
                                 <div className="menu-wrap">
                                     <nav className="menu-nav show">
                                         <div className="logo">
-                                            <a href="#">
+                                            <a href="/#">
                                                 <img src="images/LOGO final.png" alt="Logo" width="100px" />
                                             </a>
                                         </div>
@@ -28,22 +28,10 @@ export default function header() {
                                                     <a href="/">Home</a>
                                                 </li>
                                                 <li className="dropdown">
-                                                    <a href="#">Our Services</a>
+                                                    <a href="/#">Our Services</a>
                                                     <ul className="submenu">
                                                         <li>
                                                             <a href="/doctors">Doctors</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/Hospital">Hospital</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/BloodBank">Blood Bank</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/cleaning">Cleaning Service</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/BloodBank_Details">BloodBank Details</a>
                                                         </li>
                                                         <li>
                                                             <a href="/Ambulance_Details">Ambulance Details</a>
@@ -52,22 +40,7 @@ export default function header() {
                                                             <a href="/Camping_Details">Camping Details</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/technology">Technology Details</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/facility">Facility Details</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="laboratory_details">Laboratory Details</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/Disease1">Disease</a>
-                                                        </li>
-                                                         <li>
-                                                            <a href="/check">Pharmacy Details</a>
-                                                        </li>
-                                                        <li>
-                                                            <a href="/Equipments">Equipments Details</a>
+                                                            <a href="/Disease1">Operation Details</a>
                                                         </li>
                                                     </ul>
                                                 </li>
