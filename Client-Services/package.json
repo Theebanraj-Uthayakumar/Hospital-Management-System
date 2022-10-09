@@ -56,6 +56,7 @@
   "devDependencies": {
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.36",
+    "sonarqube-scanner": "^2.8.2",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
   }
 }

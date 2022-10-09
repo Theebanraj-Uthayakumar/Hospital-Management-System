@@ -114,3 +114,9 @@ yarn.lock
 .nyc_coverage/
 .scannerwork
 pnpm-lock.yaml
+
+#sonarqube
+.scannerwork
+sonarqube/extensions
+sonarqube/data
+sonarqube/logs
