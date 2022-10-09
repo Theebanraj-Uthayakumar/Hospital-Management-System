@@ -1,6 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const DoctorsSchema = mongoose.Schema({
+const doctorsSchema = new mongoose.Schema(
+  {
     DName: {
         type: String,
         require: true
@@ -33,12 +34,21 @@ const DoctorsSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    selectedFile: {
-        type: String,
+    avatar: {
+      type: String,
+      required: true,
     },
     cloudinary_id: {
-        type: String,
+      type: String,
+      required: true,
     },
-})
+  },
+  {
+    timestamps: false,
+    versionKey: false,
+  }
+)
 
-module.exports = mongoose.model('Doctors_Details', DoctorsSchema);
+const Doctors = mongoose.model('Doctors_Details', doctorsSchema)
+
+module.exports = Doctors;
