@@ -35,7 +35,6 @@ const Doctors_add = (props, errors) => {
   const [CPosistion, setCposistion] = useState("");
   const [WHospital, setWhospital] = useState("");
   const [WHistory, setWhistory] = useState("");
-  const [image, setImage] = useState("");
 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -46,7 +45,8 @@ const Doctors_add = (props, errors) => {
   const [doctors, setDoctors] = useState([]);
 
   const getRequest = () => {
-    axios.get(`http://localhost:4000/doctors/${id}`).then((response) => {
+    axios.get(`http://localhost:4000/api/v1/doctor/${id}`)
+    .then((response) => {
       // console.log(response.data)
       // console.log(response.data.name)
       // console.log(data.name)
@@ -56,7 +56,7 @@ const Doctors_add = (props, errors) => {
 
   useEffect(() => {
     getRequest();
-  }, [doctors]);
+  });
 
   // console.log(doctors.DName);
   // CreateDoctor();
@@ -98,7 +98,7 @@ const Doctors_add = (props, errors) => {
         <div className="app-header header-shadow">
           <div className="app-header__logo">
             {/* <div className="logo-src" /> */}
-            <img src={logo} style={{ width: 110 }} />
+            <img src={logo} style={{ width: 110 }} alt="logo"/>
             {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
             <div className="header__pane ml-auto">
               <div>
@@ -160,14 +160,14 @@ const Doctors_add = (props, errors) => {
                   <div className="widget-content-wrapper">
                     <div className="widget-content-left">
                       <div className="btn-group">
-                        <a
+                        {/* <a
                           data-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
                           className="p-0 btn"
                         >
                           <i className="fa fa-angle-down ml-2 opacity-8" />
-                        </a>
+                        </a> */}
                         <div
                           tabIndex={-1}
                           role="menu"
@@ -283,7 +283,7 @@ const Doctors_add = (props, errors) => {
                   </li>
                   <li className="app-sidebar__heading">Components</li>
                   <li>
-                    <a href="#" className="mm-active">
+                    <a href="/#" className="mm-active">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Doctors' Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -305,7 +305,7 @@ const Doctors_add = (props, errors) => {
                   </li>
                   
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Ambulance Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -326,7 +326,7 @@ const Doctors_add = (props, errors) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Camping Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -347,7 +347,7 @@ const Doctors_add = (props, errors) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Operation History Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -510,17 +510,17 @@ const Doctors_add = (props, errors) => {
                         />
                       </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="">
+                    {/* <Form.Group as={Row} className="mb-3" controlId="">
                       <Form.Label column sm={3}>
                         Image
                       </Form.Label>
-                      <Col sm={9}>
+                      <Col sm={9}> */}
                         {/* <Form.Control type="file" value={doctors.selectedFile} onChange={(e) => setImage(e.target.value)} /> */}
-                      </Col>
+                      {/* </Col> */}
                       {/* <Col sm={9}>
                                                 <Form.Control type="file" name="upload" onChange={onFileChange} />
                                             </Col> */}
-                    </Form.Group>
+                    {/* </Form.Group> */}
                     <center>
                       <div className="button">
                         {/* <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" /> */}
@@ -543,12 +543,12 @@ const Doctors_add = (props, errors) => {
                   <div className="app-footer-left">
                     <ul className="nav">
                       <li className="nav-item">
-                        <a href="javascript:void(0);" className="nav-link">
+                        <a href="/#" className="nav-link">
                           Footer Link 1
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a href="javascript:void(0);" className="nav-link">
+                        <a href="/#" className="nav-link">
                           Footer Link 2
                         </a>
                       </li>
@@ -557,12 +557,12 @@ const Doctors_add = (props, errors) => {
                   <div className="app-footer-right">
                     <ul className="nav">
                       <li className="nav-item">
-                        <a href="javascript:void(0);" className="nav-link">
+                        <a href="/#" className="nav-link">
                           Footer Link 3
                         </a>
                       </li>
                       <li className="nav-item">
-                        <a href="javascript:void(0);" className="nav-link">
+                        <a href="/#" className="nav-link">
                           <div className="badge badge-success mr-1 ml-0">
                             <small>NEW</small>
                           </div>

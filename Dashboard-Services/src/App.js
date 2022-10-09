@@ -1,8 +1,6 @@
-import { BrowserRouter, Switch, Route, NavLink } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import './index.css';
-
-import { MDBCard, MDBCardTitle, MDBCardText, MDBCardBody, MDBCardImage, MDBRow, MDBCol } from 'mdb-ui-kit';
 import Dashbord from "./components/Dashbord";
 import Operationadd from "./components/pages/Operation/Operationadd";
 import Operationupdate from "./components/pages/Operation/Operationupdate";

@@ -1,3 +1,5 @@
+/* eslint-disable no-script-url */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import logo from "../Healistry.png";
 
@@ -8,7 +10,7 @@ function Dashbord() {
         <div className="app-header header-shadow">
           <div className="app-header__logo">
             {/* <div className="logo-src" /> */}
-            <img src={logo} style={{ width: 110 }} />
+            <img src={logo} style={{ width: 110 }} alt="logo"/>
             {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
             <div className="header__pane ml-auto">
               <div>
@@ -88,76 +90,11 @@ function Dashbord() {
               <div className="header-btn-lg pr-0">
                 <div className="widget-content p-0">
                   <div className="widget-content-wrapper">
-                    <div className="widget-content-left">
-                      <div className="btn-group">
-                        <a
-                          data-toggle="dropdown"
-                          aria-haspopup="true"
-                          aria-expanded="false"
-                          className="p-0 btn"
-                        >
-                          {/* <img
-                                                        width={42}
-                                                        className="rounded-circle"
-                                                        src="assets/images/avatars/1.jpg"
-                                                        alt
-                                                    /> */}
-                          <i className="fa fa-angle-down ml-2 opacity-8" />
-                        </a>
-                        <div
-                          tabIndex={-1}
-                          role="menu"
-                          aria-hidden="true"
-                          className="dropdown-menu dropdown-menu-right"
-                        >
-                          <button
-                            type="button"
-                            tabIndex={0}
-                            className="dropdown-item"
-                          >
-                            User Account
-                          </button>
-                          <button
-                            type="button"
-                            tabIndex={0}
-                            className="dropdown-item"
-                          >
-                            Settings
-                          </button>
-                          <h6 tabIndex={-1} className="dropdown-header">
-                            Header
-                          </h6>
-                          <button
-                            type="button"
-                            tabIndex={0}
-                            className="dropdown-item"
-                          >
-                            Actions
-                          </button>
-                          <div tabIndex={-1} className="dropdown-divider" />
-                          <button
-                            type="button"
-                            tabIndex={0}
-                            className="dropdown-item"
-                          >
-                            Dividers
-                          </button>
-                        </div>
-                      </div>
-                    </div>
                     <div className="widget-content-left  ml-3 header-user-info">
                       <div className="widget-heading">Theebanraj U.</div>
                       <div className="widget-subheading">
                         Full-Stack Developer
                       </div>
-                    </div>
-                    <div className="widget-content-right header-user-info ml-3">
-                      <button
-                        type="button"
-                        className="btn-shadow p-1 btn btn-primary btn-sm show-toastr-example"
-                      >
-                        <i className="fa text-white fa-calendar pr-1 pl-1" />
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -311,9 +248,6 @@ function Dashbord() {
               <div className="app-page-title">
                 <div className="page-title-wrapper">
                   <div className="page-title-heading">
-                    <div className="page-title-icon">
-                      <i className="pe-7s-car icon-gradient bg-mean-fruit"></i>
-                    </div>
                     <div>
                       Analytics Dashboard
                       <div className="page-title-subheading">
@@ -341,7 +275,7 @@ function Dashbord() {
                     <ul className="nav">
                       <li className="nav-item">
                         <a href="javascript:void(0);" className="nav-link">
-                          Copyright 2019-2021 Healistry.io. All rights reserved
+                          Copyright 2022-2023 Healistry.io. All rights reserved
                         </a>
                       </li>
                     </ul>

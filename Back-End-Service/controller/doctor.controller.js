@@ -9,7 +9,7 @@ const cloudinary = require("../utils/cloudinary");
 const addDoctor = asyncHandler(async (req, res) => {
   try {
       // Upload image to cloudinary
-      const result = await cloudinary.uploader.upload(req.file.path);
+      // const result = await cloudinary.uploader.upload(req?.file?.path);
 
       let category = new Doctor({
         DName: req.body.DName,
@@ -20,8 +20,8 @@ const addDoctor = asyncHandler(async (req, res) => {
         CPosistion: req.body.CPosistion,
         WHospital: req.body.WHospital,
         WHistory: req.body.WHistory,
-        avatar: result.secure_url,
-        cloudinary_id: result.public_id,
+        // avatar: result?.secure_url,
+        // cloudinary_id: result?.public_id,
       });
 
       const savedCategory = await category.save();
@@ -52,12 +52,12 @@ const updateDoctors = asyncHandler(async (req, res) => {
   try {
     let doctors = await Doctor.findById(req.params.id);
     // Delete image from cloudinary
-    await cloudinary.uploader.destroy(doctors.cloudinary_id);
+    // await cloudinary.uploader.destroy(doctors.cloudinary_id);
     // Upload image to cloudinary
-    let result;
-    if (req.file) {
-      result = await cloudinary.uploader.upload(req.file.path);
-    }
+    // let result;
+    // if (req.file) {
+    //   result = await cloudinary.uploader.upload(req.file.path);
+    // }
     const data = {
         DName: req.body.DName,
         Speci: req.body.Speci,
@@ -67,8 +67,8 @@ const updateDoctors = asyncHandler(async (req, res) => {
         CPosistion: req.body.CPosistion,
         WHospital: req.body.WHospital,
         WHistory: req.body.WHistory,
-        avatar: result.secure_url,
-        cloudinary_id: result.public_id,
+        // avatar: result.secure_url,
+        // cloudinary_id: result.public_id,
     };
     doctors = await Doctor.findByIdAndUpdate(req.params.id, data, { new: true });
     res.json(doctors);
@@ -97,7 +97,7 @@ const deleteDoctors = asyncHandler(async (req, res) => {
   
     if (doctors) {
       // Delete image from cloudinary
-      await cloudinary.uploader.destroy(doctors.cloudinary_id);
+      // await cloudinary.uploader.destroy(doctors.cloudinary_id);
 
       await doctors.remove()
       res.json({ message: 'Doctor removed' })

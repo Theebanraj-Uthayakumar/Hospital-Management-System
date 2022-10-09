@@ -28,7 +28,7 @@ function Doctors_update(props) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const getRequest = () => {
-    axios.get("http://localhost:4000/doctors").then((response) => {
+    axios.get("http://localhost:4000/api/v1/doctor").then((response) => {
       setDoctors(response.data);
     });
   };
@@ -37,7 +37,8 @@ function Doctors_update(props) {
     getRequest();
   }, [doctors]);
 
-  function deleteDoctor(_id) {
+  function deleteDoctor(ID) {
+    console.log("ID : ",ID);
     swal({
       title: "Are you sure?",
       text: "Once deleted, you will not be able to recover this data!",
@@ -46,35 +47,23 @@ function Doctors_update(props) {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        swal("Poof! Your data has been successfully Deleted!", {
-          icon: "success",
-        });
-        fetch(`http://localhost:4000/doctors/${_id}`, {
-          method: "DELETE",
+        axios.delete(`http://localhost:4000/api/v1/doctor/${ID}`)
+        .then((res)=>{
+          swal(
+            "Good job!",
+            "Your data has been successfully Deleted",
+            "success"
+          );
+        }).catch((err)=>{
+          swal("Sorry!", "Something Error...", "error");
         })
-          .then((response) => {
-            response.json();
-            swal(
-              "Good job!",
-              "Your data has been successfully Deleted",
-              "success"
-            );
-          })
-          .catch((error) => {
-            swal("Sorry!", "Something Error...", "error");
-          });
       }
     });
   }
 
   const history = useHistory();
-  const [e_dname, setEDName] = useState([]);
-  function editDoctor(_id) {
-    console.log(_id);
-    window.sessionStorage.setItem("ID", _id);
-    axios.patch(`http://localhost:4000/doctors/${_id}`, {
-      // setEDName(DName)
-    });
+  function editDoctor(ID) {
+    window.sessionStorage.setItem("ID", ID);
     history.push("/Doctors_Edit");
   }
 
@@ -84,7 +73,7 @@ function Doctors_update(props) {
         <div className="app-header header-shadow">
           <div className="app-header__logo">
             {/* <div className="logo-src" /> */}
-            <img src={logo} style={{ width: 110 }} />
+            <img src={logo} style={{ width: 110 }} alt="logo"/>
             {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
             <div className="header__pane ml-auto">
               <div>
@@ -149,14 +138,14 @@ function Doctors_update(props) {
                   <div className="widget-content-wrapper">
                     <div className="widget-content-left">
                       <div className="btn-group">
-                        <a
+                        {/* <a
                           data-toggle="dropdown"
                           aria-haspopup="true"
                           aria-expanded="false"
                           className="p-0 btn"
                         >
                           <i className="fa fa-angle-down ml-2 opacity-8" />
-                        </a>
+                        </a> */}
                         <div
                           tabIndex={-1}
                           role="menu"
@@ -272,7 +261,7 @@ function Doctors_update(props) {
                   </li>
                   <li className="app-sidebar__heading">Components</li>
                   <li>
-                    <a href="#" className="mm-active">
+                    <a href="/#" className="mm-active">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Doctors' Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -294,7 +283,7 @@ function Doctors_update(props) {
                   </li>
                   
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Ambulance Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -315,7 +304,7 @@ function Doctors_update(props) {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Camping Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -336,7 +325,7 @@ function Doctors_update(props) {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Operation History Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -381,8 +370,9 @@ function Doctors_update(props) {
               {/* Add Form Here */}
               <div className={classes.root}>
                 {doctors
+                  // eslint-disable-next-line array-callback-return
                   .filter((val) => {
-                    if (searchTerm == "") {
+                    if (searchTerm === "") {
                       return val;
                     } else if (
                       val.DName.toLocaleLowerCase().includes(
@@ -437,18 +427,18 @@ function Doctors_update(props) {
                             <th>Working History </th>
                             <td> - {item.WHistory}</td>
                           </tr>
-                          <tr>
+                          {/* <tr>
                             <th>Image </th>
                             <td> - {item.selectedFile}</td>
-                          </tr>
+                          </tr> */}
                           {/* <tr>
                                                     <th>Likes </th>
                                                     <td> - {item.DName}</td>
                                                 </tr> */}
-                          <tr>
+                          {/* <tr>
                             <th>Created At </th>
                             <td> - {item.createdAt}</td>
-                          </tr>
+                          </tr> */}
                           {/* <tr>
                                                     <th>Created At </th>
                                                     <td> - {item._id}</td>
@@ -495,7 +485,7 @@ function Doctors_update(props) {
                   <div className="app-footer-right">
                     <ul className="nav">
                       <li className="nav-item">
-                        <a href="javascript:void(0);" className="nav-link">
+                        <a href="/#" className="nav-link">
                           Copyright 2019-2021 Healistry.io. All rights reserved
                         </a>
                       </li>

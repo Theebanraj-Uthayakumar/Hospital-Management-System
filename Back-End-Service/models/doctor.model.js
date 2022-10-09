@@ -34,14 +34,14 @@ const doctorsSchema = new mongoose.Schema(
         type: String,
         require: true
     },
-    avatar: {
-      type: String,
-      required: true,
-    },
-    cloudinary_id: {
-      type: String,
-      required: true,
-    },
+    // avatar: {
+    //   type: String,
+    //   require: false
+    // },
+    // cloudinary_id: {
+    //   type: String,
+    //   require: false
+    // },
   },
   {
     timestamps: false,

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import logo from "../../../Healistry.png";
 import Form from "react-bootstrap/Form";
@@ -10,7 +10,6 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
-// import Base64 from 'react-file-base64';
 
 const Doctors_add = (props, errors) => {
   const useStyles = makeStyles((theme) => ({
@@ -60,19 +59,6 @@ const Doctors_add = (props, errors) => {
     setError(null);
     setLoading(true);
 
-    let item = {
-      name,
-      specialization,
-      slnc,
-      experiance,
-      gender,
-      cposistion,
-      whospital,
-      whistory,
-      image,
-    };
-    console.log(item);
-
     let errors = {};
 
     //Form Validation
@@ -121,19 +107,21 @@ const Doctors_add = (props, errors) => {
     ) {
       setLoading(false);
     } else {
+      const postData ={
+        DName: name,
+        Speci: specialization,
+        SLNC: slnc,
+        Exper: experiance,
+        Gender: gender,
+        CPosistion: cposistion,
+        WHospital: whospital,
+        WHistory: whistory,
+        // avatar: fromDate,
+      }
+
+      console.log("postData : ",postData);
       axios
-        .post("http://localhost:4000/doctors", {
-          DName: name,
-          Speci: specialization,
-          SLNC: slnc,
-          Exper: experiance,
-          Gender: gender,
-          CPosistion: cposistion,
-          WHospital: whospital,
-          WHistory: whistory,
-          // selectedFile: fromDate
-          // selectedFile: image
-        })
+        .post("http://localhost:4000/api/v1/doctor", postData)
         .then((response) => {
           setLoading(false);
           alert("Your data has been successfully added...");
@@ -152,7 +140,7 @@ const Doctors_add = (props, errors) => {
         <div className="app-header header-shadow">
           <div className="app-header__logo">
             {/* <div className="logo-src" /> */}
-            <img src={logo} style={{ width: 110 }} />
+            <img src={logo} style={{ width: 110 }} alt="logo"/>
             {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
             <div className="header__pane ml-auto">
               <div>
@@ -337,7 +325,7 @@ const Doctors_add = (props, errors) => {
                   </li>
                   <li className="app-sidebar__heading">Components</li>
                   <li>
-                    <a href="#" className="mm-active">
+                    <a href="/#" className="mm-active">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Doctors' Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -359,7 +347,7 @@ const Doctors_add = (props, errors) => {
                   </li>
                   
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Ambulance Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -380,7 +368,7 @@ const Doctors_add = (props, errors) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Camping Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -401,7 +389,7 @@ const Doctors_add = (props, errors) => {
                     </ul>
                   </li>
                   <li>
-                    <a href="#">
+                    <a href="/#">
                       <i className="metismenu-icon pe-7s-diamond" />
                       Operation History Details
                       <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -605,21 +593,21 @@ const Doctors_add = (props, errors) => {
                         )}
                       </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="">
-                      <Form.Label column sm={3}>
+                    {/* <Form.Group as={Row} className="mb-3" controlId=""> */}
+                      {/* <Form.Label column sm={3}>
                         Image
-                      </Form.Label>
-                      <Col sm={9}>
+                      </Form.Label> */}
+                      {/* <Col sm={9}>
                         <Form.Control
                           type="file"
                           value={image}
                           onChange={(e) => setImage(e.target.value)}
                         />
-                      </Col>
+                      </Col> */}
                       {/* <Col sm={9}>
-                                                <Form.Control type="file" name="upload" onChange={onFileChange} />
-                                            </Col> */}
-                    </Form.Group>
+                        <Form.Control type="file" name="upload" onChange={onFileChange} />
+                      </Col> */}
+                    {/* </Form.Group> */}
                     <center>
                       <div className="button">
                         {/* <input type="button" className="Login-Button" onClick={CreateDoctor} value={loading ? "Loading... Please Wait!" : "SUBMIT"} disabled={loading} className="btn btn-block app-sidebar__heading" /> */}
