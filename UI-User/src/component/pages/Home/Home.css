@@ -1,0 +1,56 @@
+/* .home{
+   
+} */
+.home-header-img{
+   
+    width: 100%;
+    height: 600px;
+    text-align: center;
+    font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif;
+}
+.home-header-text{
+    font-size: 6rem;
+ 
+}
+.home-head{
+    background-color: rgba(255, 255, 255, 0.616);
+    font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif;
+}
+.home-team{
+    background-color: #1f386b;
+    outline:white;
+    font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif;
+}
+.home-team button{
+  text-transform: uppercase;
+  font-style: oblique;
+}
+.home-service{
+    background-color: #1c325f;
+    font-family: Cambria,Cochin,Georgia,Times,"Times New Roman",serif;
+}
+.ser-img img:hover{
+  opacity: 0.5;
+}
+.home-service-texts {
+  
+    position: relative; 
+  }  
+
+ .home-service-texts:after {
+     position: absolute;
+     content: '';
+     height: 4px;
+     bottom: -10px; 
+     margin: 0 auto;
+     left: 0;
+     right: 0;
+     width: 5%;
+     background: black;
+     transition:.5s;
+ }
+   .home-service-texts:hover:after {
+       width: 10%;
+       background: black;
+ }
+ 
