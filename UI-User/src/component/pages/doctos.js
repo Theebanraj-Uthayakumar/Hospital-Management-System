@@ -9,7 +9,8 @@ import HomeIcon from "@material-ui/icons/Home";
 import GrainIcon from "@material-ui/icons/Grain";
 import axios from "axios";
 import SearchIcon from "@material-ui/icons/Search";
-import ReactPaginate from "react-paginate";
+// import ReactPaginate from "react-paginate";
+// import DoctorImg from "./../../../public/images/doctor.jpeg";
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -22,10 +23,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function handleClick(event) {
-  event.preventDefault();
-  console.info("You clicked a breadcrumb.");
-}
+// function handleClick(event) {
+//   event.preventDefault();
+//   console.info("You clicked a breadcrumb.");
+// }
 
 function Doctor() {
   const classes = useStyles();
@@ -33,7 +34,7 @@ function Doctor() {
   const [doctors, setDoctors] = useState([]);
 
   const getRequest = () => {
-    axios.get("http://localhost:4000/doctors").then((response) => {
+    axios.get("http://localhost:4000/api/v1/doctor").then((response) => {
       setDoctors(response.data);
     });
   };
@@ -91,29 +92,29 @@ function Doctor() {
                     </div>
                     <div className="widget" style={{ paddingBlock: "20px" }}>
                       <div className="shop-widget-banner special-offer-banner">
-                        <a href="#">
-                          <img src="images/News01.png" alt />
+                        <a href="/#">
+                          <img src="images/News01.png" alt="ImageImg" />
                         </a>
                       </div>
                     </div>
                     <div className="widget" style={{ paddingBlock: "20px" }}>
                       <div className="shop-widget-banner special-offer-banner">
-                        <a href="#">
-                          <img src="images/News02.png" alt />
+                        <a href="/#">
+                          <img src="images/News02.png" alt="ImageImg" />
                         </a>
                       </div>
                     </div>
                     <div className="widget" style={{ paddingBlock: "20px" }}>
                       <div className="shop-widget-banner special-offer-banner">
-                        <a href="#">
-                          <img src="images/News03.png" alt />
+                        <a href="/#">
+                          <img src="images/News03.png" alt="ImageImg" />
                         </a>
                       </div>
                     </div>
                     <div className="widget" style={{ paddingBlock: "20px" }}>
                       <div className="shop-widget-banner special-offer-banner">
-                        <a href="#">
-                          <img src="images/News04.png" alt />
+                        <a href="/#">
+                          <img src="images/News04.png" alt="ImageImg" />
                         </a>
                       </div>
                     </div>
@@ -122,7 +123,7 @@ function Doctor() {
                 <div className="col-xl-9 col-lg-8">
                   {doctors
                     .filter((val) => {
-                      if (searchTerm == "") {
+                      if (searchTerm === "") {
                         return val;
                       } else if (
                         val.DName.toLocaleLowerCase().includes(
@@ -136,7 +137,7 @@ function Doctor() {
                       <div className="pagination-wrap">
                         <div className="pagination-wrap_column1">
                           <img
-                            // src={"http://localhost:4000/" + item.selectedFile}
+                            // src={DoctorImg}
                             src={item.selectedFile}
                             alt="Profile01"
                             className="pagination-wrap_image"
@@ -168,7 +169,7 @@ function Doctor() {
                               <th>Working History</th>
                               <td colspan="3">{item.WHistory}</td>
                             </tr>
-                            <tr>
+                            {/* <tr>
                               <th colspan="2">
                                 <p>{item.createdAt}</p>
                               </th>
@@ -177,7 +178,7 @@ function Doctor() {
                                   <ThumbUpAltIcon /> Like
                                 </p>
                               </td>
-                            </tr>
+                            </tr> */}
                           </table>
                         </div>
                       </div>
@@ -185,30 +186,30 @@ function Doctor() {
                   <div className="pagination-wrap">
                     <ul>
                       <li className="prev">
-                        <a href="#">
+                        <a href="/#">
                           <i className="fas fa-long-arrow-alt-left" /> Prev
                         </a>
                       </li>
                       <li>
-                        <a href="#">1</a>
+                        <a href="/#">1</a>
                       </li>
                       <li className="active">
-                        <a href="#">2</a>
+                        <a href="/#">2</a>
                       </li>
                       <li>
-                        <a href="#">3</a>
+                        <a href="/#">3</a>
                       </li>
                       <li>
-                        <a href="#">4</a>
+                        <a href="/#">4</a>
                       </li>
                       <li>
-                        <a href="#">...</a>
+                        <a href="/#">...</a>
                       </li>
                       <li>
-                        <a href="#">10</a>
+                        <a href="/#">10</a>
                       </li>
                       <li className="next">
-                        <a href="#">
+                        <a href="/#">
                           Next <i className="fas fa-long-arrow-alt-right" />
                         </a>
                       </li>
