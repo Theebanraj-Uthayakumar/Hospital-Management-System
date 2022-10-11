@@ -8,7 +8,7 @@ const Navigation = () => {
       <div className="app-header header-shadow">
         <div className="app-header__logo">
           {/* <div className="logo-src" /> */}
-          <img src={logo} style={{ width: 110 }} />
+          <img src={logo} style={{ width: 110 }} alt="img"/>
           {/* <div style={{ fontFamily: "lyncer", fontSize: "10" }}>Healistry</div> */}
           <div className="header__pane ml-auto">
             <div>
@@ -70,14 +70,14 @@ const Navigation = () => {
                 <div className="widget-content-wrapper">
                   <div className="widget-content-left">
                     <div className="btn-group">
-                      <a
+                      {/* <a
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
                         className="p-0 btn"
                       >
                         <i className="fa fa-angle-down ml-2 opacity-8" />
-                      </a>
+                      </a> */}
                       <div
                         tabIndex={-1}
                         role="menu"
@@ -193,7 +193,7 @@ const Navigation = () => {
                 </li>
                 <li className="app-sidebar__heading">Components</li>
                 <li>
-                  <a href="#" className="mm-active">
+                  <a href="/#" className="mm-active">
                     <i className="metismenu-icon pe-7s-diamond" />
                     Doctors' Details
                     <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -213,20 +213,20 @@ const Navigation = () => {
                   </ul>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/#">
                     <i className="metismenu-icon pe-7s-diamond" />
                     Hospitals Details
                     <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
                   </a>
                   <ul>
                     <li>
-                      <a href="#">
+                      <a href="/#">
                         <i className="metismenu-icon" />
                         Hospitals | Add
                       </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="/#">
                         <i className="metismenu-icon"></i> Hospitals |
                         Edit,Delete
                       </a>
@@ -234,7 +234,7 @@ const Navigation = () => {
                   </ul>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/#">
                     <i className="metismenu-icon pe-7s-diamond" />
                     Cleaning Company
                     <i className="metismenu-state-icon pe-7s-angle-down caret-left" />
@@ -303,7 +303,7 @@ const Navigation = () => {
                   </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="/#">
                     <i className="metismenu-icon pe-7s-display2" />
                     Tables
                   </a>
