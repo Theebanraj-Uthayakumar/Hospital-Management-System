@@ -1,0 +1,6 @@
+projectKey=healistry-ui-user-sonar
+serverUrl=http://localhost:9000
+serverVersion=9.6.1.59531
+dashboardUrl=http://localhost:9000/dashboard?id=healistry-ui-user-sonar
+ceTaskId=AYO983SRGSSbyXRazUeU
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYO983SRGSSbyXRazUeU
