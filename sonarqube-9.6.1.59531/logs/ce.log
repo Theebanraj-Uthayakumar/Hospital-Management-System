@@ -57,3 +57,7 @@
 2022.10.12 00:03:59 INFO  ce[AYPIUpyqZYACPe74Mj0w][o.s.c.t.s.ComputationStepExecutor] Trigger refresh of Portfolios and Applications | status=SUCCESS | time=0ms
 2022.10.12 00:03:59 INFO  ce[AYPIUpyqZYACPe74Mj0w][o.s.c.t.p.a.p.PostProjectAnalysisTasksExecutor] Webhooks | globalWebhooks=0 | projectWebhooks=0 | status=SUCCESS | time=7ms
 2022.10.12 00:04:00 INFO  ce[AYPIUpyqZYACPe74Mj0w][o.s.c.t.CeWorkerImpl] Executed task | project=healistry-ui-admin-new-sonar | type=REPORT | id=AYPIUpyqZYACPe74Mj0w | submitter=admin | status=SUCCESS | time=38687ms
+2022.10.12 00:11:31 INFO  ce[][o.s.p.ProcessEntryPoint] Gracefully stopping process
+2022.10.12 00:11:32 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is stopping...
+2022.10.12 00:11:32 INFO  ce[][o.s.c.t.CeProcessingSchedulerImpl] Gracefully stopping workers...
+2022.10.12 00:11:32 INFO  ce[][o.s.ce.app.CeServer] Compute Engine is stopped

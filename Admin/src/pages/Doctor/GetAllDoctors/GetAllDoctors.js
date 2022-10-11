@@ -6,20 +6,14 @@ import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 //Import Breadcrumb
 import Breadcrumbs from "../../../components/Common/Breadcrumb"
-import axios from "axios";
+import { Button } from "reactstrap"
+import { useHistory } from "react-router-dom";
 
 const GetAllDoctors = () => {
 
     const [getDoctors, setGetDoctors] = useState();
-    // useEffect(()=>{
-    //     axios.get('http://localhost:4000/api/v1/doctor')
-    //     .then((res)=>{
-    //         setGetDoctors(res.data);
-    //         console.log(res);
-    //     }).catch((err)=>{
-    //         console.log(err);
-    //     })
-    // })
+
+    const history = useHistory();
 
     const getRequest = () => {
         fetch('http://localhost:4000/api/v1/doctor')
@@ -28,10 +22,20 @@ const GetAllDoctors = () => {
         .then(data => console.log(data))
     };
     
-    
     useEffect(() => {
         getRequest();
     }, []);
+
+    const deleteDoctor = (ID) =>{
+        fetch(`http://localhost:4000/api/v1/doctor/${ID}`, { method: 'DELETE' })
+        .then(() => alert("Successfully removed...!"))
+        .then(()=> window.location.reload());
+    }
+
+    const updateDoctor = (ID) =>{
+        window.sessionStorage.setItem("DoctorID", ID);
+        history.push("/updateDoctors");
+    }
 
   return (
     <React.Fragment>
@@ -71,7 +75,11 @@ const GetAllDoctors = () => {
                             <Th data-priority="3">Current Position</Th>
                             <Th data-priority="6">Working Hospital</Th>
                             <Th data-priority="6">Working History</Th>
-                            <Th data-priority="6">Action</Th>
+                            <Th data-priority="6" colspan="2">
+                                <center>
+                                Action
+                                </center>
+                            </Th>
                           </Tr>
                         </Thead>
                         <Tbody>
@@ -87,7 +95,26 @@ const GetAllDoctors = () => {
                                     <Td>{item.CPosistion}</Td>
                                     <Td>{item.WHospital}</Td>
                                     <Td>{item.WHistory}</Td>
-                                    <Td>Button</Td>
+                                    <Td>
+                                        <Button
+                                            block
+                                            color="danger"
+                                            outline
+                                            onClick={() => deleteDoctor(item._id)}
+                                            >
+                                            D
+                                        </Button>
+                                    </Td>
+                                    <Td>
+                                        <Button
+                                            block
+                                            color="primary"
+                                            outline
+                                            onClick={()=>updateDoctor(item._id)}
+                                            >
+                                            E
+                                        </Button>
+                                    </Td>
                                 </Tr>
                             ))}
                         </Tbody>

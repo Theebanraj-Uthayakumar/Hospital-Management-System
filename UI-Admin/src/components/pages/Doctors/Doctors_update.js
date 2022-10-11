@@ -33,11 +33,6 @@ function Doctors_update(props) {
       console.log(response);
       setDoctors(response.data);
     });
-
-    // fetch('http://localhost:4000/api/v1/doctor')
-    // // .then(response => console.log(response))
-    // .then(response => response.json())
-    // .then(data => console.log(data));
   };
 
   useEffect(() => {
