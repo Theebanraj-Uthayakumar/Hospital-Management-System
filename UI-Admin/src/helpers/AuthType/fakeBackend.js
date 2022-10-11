@@ -2,10 +2,6 @@ import axios from "axios"
 import MockAdapter from "axios-mock-adapter"
 import * as url from "../url_helper"
 import accessToken from "../jwt-token-access/accessToken"
-import {
-  calenderDefaultCategories,
-  events,
-} from "../../common/data"
 
 let users = [
   {
@@ -198,18 +194,18 @@ const fakeBackend = () => {
     })
   })
 
-  mock.onGet(url.GET_EVENTS).reply(() => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (events) {
-          // Passing fake JSON data as response
-          resolve([200, events])
-        } else {
-          reject([400, "Cannot get events"])
-        }
-      })
-    })
-  })
+  // mock.onGet(url.GET_EVENTS).reply(() => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (events) {
+  //         // Passing fake JSON data as response
+  //         resolve([200, events])
+  //       } else {
+  //         reject([400, "Cannot get events"])
+  //       }
+  //     })
+  //   })
+  // })
 
   mock.onPost(url.ADD_NEW_EVENT).reply(event => {
     return new Promise((resolve, reject) => {
@@ -250,18 +246,18 @@ const fakeBackend = () => {
     })
   })
 
-  mock.onGet(url.GET_CATEGORIES).reply(() => {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (calenderDefaultCategories) {
-          // Passing fake JSON data as response
-          resolve([200, calenderDefaultCategories])
-        } else {
-          reject([400, "Cannot get categories"])
-        }
-      })
-    })
-  })
+  // mock.onGet(url.GET_CATEGORIES).reply(() => {
+  //   return new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       if (calenderDefaultCategories) {
+  //         // Passing fake JSON data as response
+  //         resolve([200, calenderDefaultCategories])
+  //       } else {
+  //         reject([400, "Cannot get categories"])
+  //       }
+  //     })
+  //   })
+  // })
 
 }
 
