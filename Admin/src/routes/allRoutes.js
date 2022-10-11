@@ -13,19 +13,10 @@ import ForgetPwd from "../pages/Authentication/ForgetPassword"
 // Dashboard
 import Dashboard from "../pages/Dashboard/index"
 
-//Icons
-import IconDripicons from "../pages/Icons/IconDripicons"
-import IconMaterialdesign from "../pages/Icons/IconMaterialdesign"
-import TypiconsIcon from "../pages/Icons/IconTypicons"
-import IconIon from "../pages/Icons/IconIon";
-import ThemifyIcon from "../pages/Icons/IconThemify"
-import IconFontawesome from "../pages/Icons/IconFontawesome"
-
-//Tables
-import BasicTables from "../pages/Tables/BasicTables"
-import DatatableTables from "../pages/Tables/DatatableTables"
-import ResponsiveTables from "../pages/Tables/ResponsiveTables"
-import EditableTables from "../pages/Tables/EditableTables"
+//Doctors
+import GetAllDoctors from "../pages/Doctor/GetAllDoctors/GetAllDoctors";
+import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
+import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors"
 
 // Forms
 import FormElements from "../pages/Forms/FormElements"
@@ -42,22 +33,13 @@ import FormXeditable from "../pages/Forms/FormXeditable"
 const userRoutes = [
   { path: "/dashboard", component: Dashboard },
 
+  //Doctors
+  { path: "/getAllDoctors", component: GetAllDoctors },
+  { path: "/addDoctors", component: AddDoctors },
+  { path: "/updateDoctors", component: UpdateDoctors },
+
   //profile
   { path: "/profile", component: UserProfile },
-
-  // Icons
-  { path: "/icons-dripicons", component: IconDripicons },
-  { path: "/icons-materialdesign", component: IconMaterialdesign },
-  { path: "/icons-fontawesome", component: IconFontawesome },
-  { path: "/icons-ion", component: IconIon },
-  { path: "/icons-themify", component: ThemifyIcon },
-  { path: "/icons-typicons", component: TypiconsIcon },
-
-  // Tables
-  { path: "/tables-basic", component: BasicTables },
-  { path: "/tables-datatable", component: DatatableTables },
-  { path: "/tables-responsive", component: ResponsiveTables },
-  { path: "/tables-editable", component: EditableTables },
 
   // Forms
   { path: "/form-elements", component: FormElements },

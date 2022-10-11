@@ -110,7 +110,7 @@ const SidebarContent = props => {
               </Link>
               <ul className="sub-menu" aria-expanded="true">
                 <li>
-                  <Link to="/#">New Doctor</Link>
+                  <Link to="/addDoctors">New Doctor</Link>
                 </li>
                 <li>
                   <Link to="/#" className="has-arrow">
@@ -118,7 +118,10 @@ const SidebarContent = props => {
                   </Link>
                   <ul className="sub-menu" aria-expanded="true">
                     <li>
-                      <Link to="/#">Doctors List</Link>
+                      <Link to="/getAllDoctors">Doctors List</Link>
+                    </li>
+                    <li>
+                      <Link to="/updateDoctors">Update Doctors</Link>
                     </li>
                   </ul>
                 </li>
@@ -161,57 +164,6 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-view-grid"></i>
-                <span>{props.t("Tables")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/tables-basic">{props.t("Basic Tables")}</Link>
-                </li>
-                <li>
-                  <Link to="/tables-datatable">{props.t("Data Tables")}</Link>
-                </li>
-                <li>
-                  <Link to="/tables-responsive">
-                    {props.t("Responsive Table")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/tables-editable">{props.t("Editable Table")}</Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to="/#" className="has-arrow waves-effect">
-                <i className="ti-face-smile"></i>
-                <span>{props.t("Icons")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/icons-materialdesign">
-                    {props.t("Material Design")}
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/icons-fontawesome">{props.t("Font awesome")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-ion">{props.t("Ion Icons")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-themify">{props.t("Themify Icons")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-dripicons">{props.t("Dripicons")}</Link>
-                </li>
-                <li>
-                  <Link to="/icons-typicons">{props.t("Typicons Icons")}</Link>
-                </li>
-              </ul>
-            </li>
-
           </ul>
         </div>
       </SimpleBar>
