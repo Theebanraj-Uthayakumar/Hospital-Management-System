@@ -120,47 +120,7 @@ const SidebarContent = props => {
                     <li>
                       <Link to="/getAllDoctors">Doctors List</Link>
                     </li>
-                    <li>
-                      <Link to="/updateDoctors">Update Doctors</Link>
-                    </li>
                   </ul>
-                </li>
-              </ul>
-            </li>
-
-            <li>
-              <Link to="/#" className="waves-effect">
-                <i className="ti-receipt"></i>
-                <span className="badge rounded-pill bg-success float-end">6</span>
-                <span>{props.t("Forms")}</span>
-              </Link>
-              <ul className="sub-menu" aria-expanded="false">
-                <li>
-                  <Link to="/form-elements">{props.t("Form Elements")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-validation">{props.t("Form Validation")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-advanced">{props.t("Form Advanced")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-editors">{props.t("Form Editors")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-uploads">{props.t("Form File Upload")} </Link>
-                </li>
-                <li>
-                  <Link to="/form-xeditable">{props.t("Form Xeditable")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-repeater">{props.t("Form Repeater")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-wizard">{props.t("Form Wizard")}</Link>
-                </li>
-                <li>
-                  <Link to="/form-mask">{props.t("Form Mask")}</Link>
                 </li>
               </ul>
             </li>

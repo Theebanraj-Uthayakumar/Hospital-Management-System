@@ -3,12 +3,12 @@ const scanner = require('sonarqube-scanner');
 scanner(
     {
         serverUrl: 'http://localhost:9000',
-        token: "sqp_01c0d930644ad65d0f1f4a02b2d115df24af01d5",
+        token: "sqp_794fd846f8521090deaf315d56cfe5148a7a29bb",
         options: {
-            'sonar.projectName': 'healistry-ui-admin-sonar',
+            'sonar.projectName': 'healistry-ui-admin-new-sonar',
             'sonar.projectDescription': 'Here I can add a description of my project',
-            'sonar.projectKey': 'healistry-ui-admin-sonar',
-            'sonar.projectVersion': '0.0.1',
+            'sonar.projectKey': 'healistry-ui-admin-new-sonar',
+            'sonar.projectVersion': '0.0.2',
             'sonar.exclusions': '',
             'sonar.sourceEncoding': 'UTF-8',
         }
