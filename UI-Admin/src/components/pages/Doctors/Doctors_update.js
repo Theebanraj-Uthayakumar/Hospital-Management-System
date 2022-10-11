@@ -28,7 +28,9 @@ function Doctors_update(props) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const getRequest = () => {
-    axios.get("http://localhost:4000/api/v1/doctor").then((response) => {
+    axios.get("http://localhost:4000/api/v1/doctor")
+    .then((response) => {
+      console.log(response);
       setDoctors(response.data);
     });
   };
