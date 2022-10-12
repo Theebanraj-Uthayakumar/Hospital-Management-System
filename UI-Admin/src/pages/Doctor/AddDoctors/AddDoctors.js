@@ -52,10 +52,13 @@ const AddDoctors = () => {
 
       fetch('http://localhost:4000/api/v1/doctor', requestOptions)
       .then(async response => {
-        window.location.reload();
+        swal("Good job!", "You clicked the button!", "success")
+        .then(() => {
+          window.location.reload();
+        });
       }).catch((err)=>{
         console.log(err);
-        alert("Sorry, Something Error...")
+        swal("Good job!", "You clicked the button!", "warning");
       })
     }
   }
