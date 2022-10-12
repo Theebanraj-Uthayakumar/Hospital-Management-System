@@ -64,7 +64,7 @@ function Doctor() {
                 </Link>
                 <Typography color="textPrimary" className={classes.link}>
                   <GrainIcon className={classes.icon} />
-                  Dectors Details
+                  Doctors Details
                 </Typography>
               </Breadcrumbs>
               <div className="row justify-content-center">

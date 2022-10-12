@@ -9,6 +9,7 @@ const cors = require("cors");
 
 //Import Routes
 const usermanagement = require("./routes/doctor.routes");
+const operationmanagement = require("./routes/operation.routes");
 
 const app = express();
 
@@ -20,6 +21,8 @@ connectDB();
 
 //Route Middlewares
 app.use("/api/v1/doctor", usermanagement);
+app.use("/api/v1/operation", operationmanagement);
+
 
 
 if (process.env.NODE_ENV === "development") {
