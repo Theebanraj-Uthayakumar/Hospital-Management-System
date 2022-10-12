@@ -27,9 +27,24 @@ const GetAllDoctors = () => {
     }, []);
 
     const deleteDoctor = (ID) =>{
-        fetch(`http://localhost:4000/api/v1/doctor/${ID}`, { method: 'DELETE' })
-        .then(() => alert("Successfully removed...!"))
-        .then(()=> window.location.reload());
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          fetch(`http://localhost:4000/api/v1/doctor/${ID}`, { method: 'DELETE' })
+          .then(() => 
+            swal("Poof! Your Data has been deleted!", {
+              icon: "success",
+            })
+          )
+          .then(()=> window.location.reload());
+        }
+      });
     }
 
     const updateDoctor = (ID) =>{
