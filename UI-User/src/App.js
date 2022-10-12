@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Nav from "./component/templates/header";
 import Footer from "./component/templates/footer";
-import Operation from "./component/pages/Operation";
 import Operation2 from "./component/pages/Operation2";
 import Doctor from './component/pages/doctos';
+import Operation from './component/pages/Operation';
 import Home from "./component/pages/Home/Home";
 
 import Pharmacy2 from "./component/Pharmacy/Pharmacy2";

@@ -40,7 +40,7 @@ export default function header() {
                                                             <a href="/Camping_Details">Camping Details</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/Disease1">Operation Details</a>
+                                                            <a href="/Operation">Operation Details</a>
                                                         </li>
                                                     </ul>
                                                 </li>
