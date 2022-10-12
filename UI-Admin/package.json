@@ -92,6 +92,7 @@
     "simplebar-react": "^2.3.3",
     "sonarqube-scanner": "^2.8.2",
     "styled-components": "^5.3.0",
+    "sweetalert": "^2.1.2",
     "toastr": "^2.1.4"
   },
   "scripts": {
