@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import MetaTags from 'react-meta-tags';
-
 import {
   Card,
   CardBody,
@@ -8,10 +7,7 @@ import {
   Row,
   Container,
 } from "reactstrap"
-
 import { Button } from "reactstrap"
-
-//Import Breadcrumb
 import Breadcrumbs from "../../../components/Common/Breadcrumb"
 
 const AddDoctors = () => {
@@ -56,11 +52,13 @@ const AddDoctors = () => {
 
       fetch('http://localhost:4000/api/v1/doctor', requestOptions)
       .then(async response => {
-        alert("Your data has been successfully added...")
-        window.location.reload();
+        swal("Good job!", "You clicked the button!", "success")
+        .then(() => {
+          window.location.reload();
+        });
       }).catch((err)=>{
         console.log(err);
-        alert("Sorry, Something Error...")
+        swal("Good job!", "You clicked the button!", "warning");
       })
     }
   }

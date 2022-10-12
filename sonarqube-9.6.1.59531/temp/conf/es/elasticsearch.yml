@@ -13,7 +13,7 @@ http.host: 127.0.0.1
 path.logs: /Users/theeban/Desktop/SLIIT/3rd Year/2nd Semester/Hospital-Management-System/sonarqube-9.6.1.59531/logs
 discovery.seed_hosts: 127.0.0.1
 cluster.initial_master_nodes: 127.0.0.1
-transport.port: '51263'
+transport.port: '51186'
 node.master: 'true'
 path.data: /Users/theeban/Desktop/SLIIT/3rd Year/2nd Semester/Hospital-Management-System/sonarqube-9.6.1.59531/data/es7
 node.name: sonarqube
