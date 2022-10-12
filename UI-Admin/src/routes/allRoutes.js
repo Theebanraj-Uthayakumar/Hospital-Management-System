@@ -17,6 +17,9 @@ import Dashboard from "../pages/Dashboard/index"
 import GetAllDoctors from "../pages/Doctor/GetAllDoctors/GetAllDoctors";
 import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
 import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors"
+import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
+import AddOperation from "pages/Operation/AddOperation/AddOperation";
+import UpdateOperation from "pages/Operation/UpdateOperation/UpdateOperation";
 
 
 const userRoutes = [
@@ -26,6 +29,11 @@ const userRoutes = [
   { path: "/getAllDoctors", component: GetAllDoctors },
   { path: "/addDoctors", component: AddDoctors },
   { path: "/updateDoctors", component: UpdateDoctors },
+
+  //Operation
+  { path: "/getAllOperation", component: GetAllOperation },
+  { path: "/addOperation", component: AddOperation },
+  { path: "/updateOperation", component: UpdateOperation },
 
   //profile
   { path: "/profile", component: UserProfile },
