@@ -122,6 +122,7 @@ function Doctor() {
                 </div>
                 <div className="col-xl-9 col-lg-8">
                   {doctors
+                    // eslint-disable-next-line array-callback-return
                     .filter((val) => {
                       if (searchTerm === "") {
                         return val;
