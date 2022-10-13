@@ -129,19 +129,7 @@ const UpdateOperation = () => {
                       />
                     </div>
                   </Row>
-                  {/* <Row className="mb-3">
-                    <label className="col-md-2 col-form-label">DName</label>
-                    <div className="col-md-10">
-                      <select className="form-control" 
-                        value={operation.DName}
-                        onChange={(e) => setGender(e.target.value)}
-                      > */}
-                        {/* <option>Select</option> */}
-                        {/* <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </div>
-                  </Row> */}
+                  
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
@@ -176,40 +164,7 @@ const UpdateOperation = () => {
                       />
                     </div>
                   </Row>
-                  {/* <Row className="mb-3">
-                    <label
-                      htmlFor="example-text-input"
-                      className="col-md-2 col-form-label"
-                    >
-                      Working Hospital
-                    </label>
-                    <div className="col-md-10">
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Working Hospital"
-                        defaultValue={operation.WHospital}
-                        onChange={(e) => setWhospital(e.target.value)}
-                      />
-                    </div>
-                  </Row> */}
-                  {/* <Row className="mb-3">
-                    <label
-                      htmlFor="example-text-input"
-                      className="col-md-2 col-form-label"
-                    >
-                      Working History
-                    </label>
-                    <div className="col-md-10">
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Working History"
-                        defaultValue={operation.WHistory}
-                        onChange={(e) => setWhistory(e.target.value)}
-                      />
-                    </div>
-                  </Row> */}
+                  
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
