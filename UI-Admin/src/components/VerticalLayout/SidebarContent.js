@@ -124,6 +124,29 @@ const SidebarContent = props => {
                 </li>
               </ul>
             </li>
+
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <i className="ti-more"></i>
+                <span>Ambulance</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="true">
+                <li>
+                  <Link to="/addAmbulance">New Ambulance</Link>
+                </li>
+                <li>
+                  <Link to="/#" className="has-arrow">
+                    Get All Ambulance
+                  </Link>
+                  <ul className="sub-menu" aria-expanded="true">
+                    <li>
+                      <Link to="/getAllAmbulance">Ambulance List</Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
           </ul>
         </div>
       </SimpleBar>
