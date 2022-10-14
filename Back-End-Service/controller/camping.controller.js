@@ -14,7 +14,7 @@ const addCamping = asyncHandler(async (req, res) => {
       let category = new Camping({
         HName: req.body.HName,
         Time: req.body.Time,
-        VENUE: req.body.VENUE,
+        Venue: req.body.Venue,
         CNumber: req.body.CNumber,
         Gender: req.body.Gender,
         Date: req.body.Date,
@@ -60,7 +60,7 @@ const updateCamping = asyncHandler(async (req, res) => {
     const data = {
         HName: req.body.HName,
         Time: req.body.Time,
-        VENUE: req.body.VENUE,
+        Venue: req.body.Venue,
         CNumber: req.body.CNumber,
         Gender: req.body.Gender,
         Date: req.body.Date,
