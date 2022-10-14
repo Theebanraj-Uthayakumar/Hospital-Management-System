@@ -31,6 +31,9 @@ const AddAmbulance = () => {
       // setLoading(false);
       alert("Please fill all required field...!");
     } else {
+
+      const current = new Date();
+      const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -40,7 +43,9 @@ const AddAmbulance = () => {
           DName: DName,
           DLicence: DLicence,
           DContactno: DLicence,
-          Description: Description
+          Description: Description,          
+          CTime: date,
+          CDate: date
         })
       };
 
