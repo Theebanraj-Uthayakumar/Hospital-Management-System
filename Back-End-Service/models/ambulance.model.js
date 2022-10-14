@@ -26,6 +26,14 @@ const ambulanceSchema = new mongoose.Schema(
         type: String,
         require: true
     },
+    CTime: {
+        type: String,
+        require: true
+    },
+    CDate: {
+        type: String,
+        require: true
+    }
     // avatar: {
     //   type: String,
     //   require: false
