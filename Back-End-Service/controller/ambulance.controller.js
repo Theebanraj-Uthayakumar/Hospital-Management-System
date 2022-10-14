@@ -18,6 +18,8 @@ const addAmbulance = asyncHandler(async (req, res) => {
         DLicence: req.body.DLicence,
         DContactno: req.body.DContactno,
         Description: req.body.Description,
+        CTime: req.body.CTime,
+        CDate: req.body.CDate,
         
         // avatar: result?.secure_url,
         // cloudinary_id: result?.public_id,
@@ -64,6 +66,8 @@ const updateAmbulance = asyncHandler(async (req, res) => {
         DLicence: req.body.DLicence,
         DContactno: req.body.DContactno,
         Description: req.body.Description,
+        CTime: req.body.CTime,
+        CDate: req.body.CDate,
         
         // avatar: result.secure_url,
         // cloudinary_id: result.public_id,
