@@ -16,10 +16,15 @@ import Dashboard from "../pages/Dashboard/index"
 //Doctors
 import GetAllDoctors from "../pages/Doctor/GetAllDoctors/GetAllDoctors";
 import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
-import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors"
+import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors";
 import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
 import UpdateOperation from "pages/Operation/UpdateOperation/UpdateOperation";
+
+//Ambulance
+import GetAllAmbulance from "../pages/Ambulance/GetAllAmbulance/GetAllAmbulance";
+import AddAmbulance from "../pages/Ambulance/AddAmbulance/AddAmbulance";
+import UpdateAmbulance from "../pages/Ambulance/UpdateAmbulance/UpdateAmbulance"
 
 
 const userRoutes = [
@@ -34,6 +39,11 @@ const userRoutes = [
   { path: "/getAllOperation", component: GetAllOperation },
   { path: "/addOperation", component: AddOperation },
   { path: "/updateOperation", component: UpdateOperation },
+
+  //Ambulance
+  { path: "/getAllAmbulance", component: GetAllAmbulance },
+  { path: "/addAmbulance", component: AddAmbulance },
+  { path: "/updateAmbulance", component: UpdateAmbulance },
 
   //profile
   { path: "/profile", component: UserProfile },
