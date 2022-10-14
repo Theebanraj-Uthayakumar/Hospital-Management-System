@@ -43,6 +43,10 @@ const UpdateAmbulance = () => {
   const history = useHistory();
 
   const UpdateAmbulance =()=>{
+      
+      const current = new Date();
+      const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+
       const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -52,7 +56,9 @@ const UpdateAmbulance = () => {
           DName: DName ? DName : Ambulance.DName,
           DLicence: DLicence ? DLicence : Ambulance.DLicence,
           DContactno: DContactno ? DContactno : Ambulance.DContactno,
-          Description: Description ? Description : Ambulance.Description
+          Description: Description ? Description : Ambulance.Description,          
+          CTime: date,
+          CDate: date
         })
       };
 
