@@ -3,55 +3,46 @@ import { call, put, takeEvery, takeLatest } from "redux-saga/effects"
 // Login Redux States
 import { LOGIN_USER, LOGOUT_USER } from "./actionTypes"
 import { apiError, loginSuccess, logoutUserSuccess } from "./actions"
-
-//Include Both Helper File with needed methods
-import { getFirebaseBackend } from "../../../helpers/firebase_helper"
-import {
-  postFakeLogin,
-  postJwtLogin,
-  postSocialLogin,
-} from "../../../helpers/fakebackend_helper"
-
-const fireBaseBackend = getFirebaseBackend()
+import axios from "axios";
 
 function* loginUser({ payload: { user, history } }) {
-  try {
-    if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-      const response = yield call(
-        fireBaseBackend.loginUser,
-        user.email,
-        user.password
-      )
-      yield put(loginSuccess(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "jwt") {
-      const response = yield call(postJwtLogin, {
-        email: user.email,
-        password: user.password,
-      })
-      localStorage.setItem("authUser", JSON.stringify(response))
-      yield put(loginSuccess(response))
-    } else if (process.env.REACT_APP_DEFAULTAUTH === "fake") {
-      const response = yield call(postFakeLogin, {
-        email: user.email,
-        password: user.password,
-      })
-      localStorage.setItem("authUser", JSON.stringify(response))
-      yield put(loginSuccess(response))
+  console.log("Login Step 02");
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: user.email,
+      password: user.password,
+    })
+  };
+
+  fetch('http://localhost:4000/api/v1/auth/login', requestOptions)
+  .then(response => response.json())
+  // .then(data => setGetDoctors(data))
+  .then(data => {
+    if(data.status_code === 200){
+      localStorage.setItem("authUser", JSON.stringify(data));
+      history.push("/dashboard")
+    } else{
+      console.log(data.error_Message);
+      swal("Warning!", `${data.error_Message}`, "warning");
     }
-    history.push("/dashboard")
-  } catch (error) {
-    yield put(apiError(error))
-  }
+  })
+  // if(user.email === "admin@themesbrand.com" || user.password === "123456"){
+  //   const response = {
+  //     email: user.email,
+  //     password: user.password,
+  //   }
+  //   localStorage.setItem("authUser", JSON.stringify(response))
+  //   // yield put(loginSuccess(response))
+  //   history.push("/dashboard")
+  // }
 }
 
 function* logoutUser({ payload: { history } }) {
   try {
     localStorage.removeItem("authUser")
 
-    if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-      const response = yield call(fireBaseBackend.logout)
-      yield put(logoutUserSuccess(response))
-    }
     history.push("/login")
   } catch (error) {
     yield put(apiError(error))
