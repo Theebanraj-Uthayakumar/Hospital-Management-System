@@ -17,10 +17,7 @@ import Dashboard from "../pages/Dashboard/index"
 import GetAllDoctors from "../pages/Doctor/GetAllDoctors/GetAllDoctors";
 import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
 import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors";
-import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
-import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors"
 import DoctorsReport from "pages/Doctor/DoctorsReport/DoctorsReport"
-import AmbulanceReport from "pages/Ambulance/AmbulanceReport/AmbulanceReport"
 
 //Operation
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
@@ -28,6 +25,7 @@ import UpdateOperation from "pages/Operation/UpdateOperation/UpdateOperation";
 import OperationReport from "pages/Operation/OperationReport/OperationReport";
 import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
 
+//Camping
 import AddCamping from "pages/Camping/AddCamping/AddCamping"
 import GetAllCamping from "pages/Camping/GetAllCamping/GetAllCamping"
 import UpdateCamping from "pages/Camping/UpdateCamping/UpdateCamping"
@@ -37,6 +35,7 @@ import CampingReport from "pages/Camping/CampingReport/CampingReport"
 import GetAllAmbulance from "../pages/Ambulance/GetAllAmbulance/GetAllAmbulance";
 import AddAmbulance from "../pages/Ambulance/AddAmbulance/AddAmbulance";
 import UpdateAmbulance from "../pages/Ambulance/UpdateAmbulance/UpdateAmbulance"
+import AmbulanceReport from "pages/Ambulance/AmbulanceReport/AmbulanceReport"
 
 
 const userRoutes = [
@@ -59,6 +58,7 @@ const userRoutes = [
   { path: "/addAmbulance", component: AddAmbulance },
   { path: "/updateAmbulance", component: UpdateAmbulance },
   { path: "/ambulanceReport", component: AmbulanceReport },
+  
   //Camping
   { path: "/getAllCamping", component: GetAllCamping },
   {path: "/addCamping", component: AddCamping},
