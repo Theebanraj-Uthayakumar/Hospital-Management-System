@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import MetaTags from 'react-meta-tags';
-import React from "react"
+import React, {useState} from "react"
 
 import { Row, Col, CardBody, Card, Alert, Container } from "reactstrap"
 
@@ -23,6 +23,9 @@ const Login = props => {
     console.log("Login Step 01");
     props.loginUser(values, props.history)
   }
+
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
 
   return (
     <React.Fragment>
@@ -69,11 +72,12 @@ const Login = props => {
                         <AvField
                           name="email"
                           label="Email"
-                          value="admin@themesbrand.com"
                           className="form-control"
                           placeholder="Enter email"
                           type="email"
                           required
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                       </div>
 
@@ -81,10 +85,11 @@ const Login = props => {
                         <AvField
                           name="password"
                           label="Password"
-                          value="123456"
                           type="password"
                           required
                           placeholder="Enter Password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                       </div>
 

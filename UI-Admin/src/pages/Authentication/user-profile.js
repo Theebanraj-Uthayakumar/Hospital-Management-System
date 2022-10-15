@@ -29,14 +29,13 @@ import { editProfile, resetProfileFlag } from "../../store/actions"
 const UserProfile = props => {
   const [email, setemail] = useState("")
   const [name, setname] = useState("")
-  const [idx, setidx] = useState(1)
 
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"))
-        setname(obj.username)
-        setemail(obj.email)
-        setidx(obj.uid)
+        console.log(obj);
+        setname(obj.user.name);
+        setemail(obj.user.email);
       setTimeout(() => {
         props.resetProfileFlag();
       }, 3000);
@@ -76,11 +75,10 @@ const UserProfile = props => {
                         className="avatar-md rounded-circle img-thumbnail"
                       />
                     </div>
-                    <div className="align-self-center flex-1">
+                    <div className="align-self-center flex-1" style={{paddingLeft: 20}}>
                       <div className="text-muted">
                         <h5>{name}</h5>
                         <p className="mb-1">{email}</p>
-                        <p className="mb-0">Id no: #{idx}</p>
                       </div>
                     </div>
                   </div>
