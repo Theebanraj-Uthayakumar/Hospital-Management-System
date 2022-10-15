@@ -23,6 +23,11 @@ const AddCamping = () => {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
 
+  const [error_hname, setErrorhname] = useState("")
+  const [error_venue, setErrorvenue] = useState("")
+  const [error_cnumber, setErrorcnumber] = useState("")
+  const [error_description, setErrordescription] = useState("")
+
   const CreateCamping =()=>{
     if (
       hname === "" ||
@@ -35,6 +40,13 @@ const AddCamping = () => {
       // setLoading(false);
       alert("Please fill all required field...!");
     } else {
+      if (
+        error_hname === "" &&
+        error_venue === "" &&
+        error_cnumber === "" &&
+        error_description === ""
+      ) {
+
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -56,8 +68,61 @@ const AddCamping = () => {
         console.log(err);
         alert("Sorry, Something Error...")
       })
+    } else {
+      swal("Warning!", "Please Enter a valid Input...!", "warning")
     }
   }
+}
+const textHNameInput = e => {
+  var letters = /^[A-Za-z ]+$/
+  console.log("error_hname : ", error_hname)
+  if (e.match(letters)) {
+    setName(e)
+    setErrorhname("")
+  } else if (e === "") {
+    setErrorhname("Please Enter a Name")
+  } else {
+    setErrorhname("Please Enter a valid Input")
+  }
+}
+
+const textVenueInput = e => {
+  var letters = /^[A-Za-z ]+$/
+  if (e.match(letters)) {
+      setVenue(e)
+    setErrorvenue("")
+  } else if (e === "") {
+    setErrorvenue("Please Enter a Venue")
+  } else {
+    setErrorvenue("Please Enter a valid Input")
+  }
+}
+
+const textCNumberInput = e => {
+  var letters = /^(C)[0-9]+$/
+  if (e.match(letters)) {
+      setCNumber(e)
+    setErrorcnumber("")
+  } else if (e === "") {
+    setErrorcnumber("Please Enter a CNumber")
+  } else {
+    setErrorcnumber("Please Enter a valid Input")
+  }
+}
+
+
+const textDescriptionlInput = e => {
+  var letters = /^[A-Za-z ]+$/
+  console.log("error_description : ", error_description)
+  if (e.match(letters)) {
+    setDescription(e)
+    setErrordescription("")
+  } else if (e === "") {
+    setErrordescription("Please Enter a Description")
+  } else {
+    setErrordescription("Please Enter a valid Input")
+  }
+}
 
   return (
     <React.Fragment>
@@ -85,10 +150,15 @@ const AddCamping = () => {
                         className="form-control"
                         type="text"
                         placeholder="Camping Name"
-                        value={hname}
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                    </div>
+                        //value={hname}
+                        onChange={e => textHNameInput(e.target.value)}
+                        />
+                        {error_hname ? (
+                          <span style={{ color: "red", fontSize: 12 }}>
+                            {error_hname}
+                          </span>
+                        ) : null}
+                      </div>
                   </Row>
                   <Row className="mb-3">
                     <label
@@ -136,9 +206,14 @@ const AddCamping = () => {
                         className="form-control"
                         type="text"
                         placeholder="Description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        //value={description}
+                        onChange={e => textDescriptionlInput(e.target.value)}
                       />
+                      {error_description ? (
+                        <span style={{ color: "red", fontSize: 12 }}>
+                          {error_description}
+                        </span>
+                      ) : null}
                     </div>
                   </Row>
                   
@@ -154,9 +229,14 @@ const AddCamping = () => {
                         className="form-control"
                         type="text"
                         placeholder="Camping Number"
-                        value={cnumber}
-                        onChange={(e) => setCNumber(e.target.value)}
+                        //value={cnumber}
+                        onChange={e => textCNumberInput(e.target.value)}
                       />
+                      {error_cnumber ? (
+                        <span style={{ color: "red", fontSize: 12 }}>
+                          {error_cnumber}
+                        </span>
+                      ) : null}
                     </div>
                   </Row>
 
@@ -172,9 +252,14 @@ const AddCamping = () => {
                         className="form-control"
                         type="text"
                         placeholder="Venue"
-                        value={venue}
-                        onChange={(e) => setVenue(e.target.value)}
+                        //value={venue}
+                        onChange={e => textVenueInput(e.target.value)}
                       />
+                      {error_venue ? (
+                        <span style={{ color: "red", fontSize: 12 }}>
+                          {error_venue}
+                        </span>
+                      ) : null}
                     </div>
                   </Row>
 
