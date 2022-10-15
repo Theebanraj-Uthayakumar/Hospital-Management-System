@@ -134,7 +134,7 @@ const Login = props => {
                   </Link>{" "}
                 </p>
                 <p>
-                  © {new Date().getFullYear()} Veltrix. Crafted with{" "}
+                  © {new Date().getFullYear()} MELWIN. Crafted with{" "}
                   <i className="mdi mdi-heart text-danger" /> by Themesbrand
                 </p>
               </div>
