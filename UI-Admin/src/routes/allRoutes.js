@@ -16,8 +16,11 @@ import Dashboard from "../pages/Dashboard/index"
 //Doctors
 import GetAllDoctors from "../pages/Doctor/GetAllDoctors/GetAllDoctors";
 import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
+import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors";
+import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
 import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors"
 import DoctorsReport from "pages/Doctor/DoctorsReport/DoctorsReport"
+import AmbulanceReport from "pages/Ambulance/AmbulanceReport/AmbulanceReport"
 
 //Operation
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
@@ -29,6 +32,11 @@ import AddCamping from "pages/Camping/AddCamping/AddCamping"
 import GetAllCamping from "pages/Camping/GetAllCamping/GetAllCamping"
 import UpdateCamping from "pages/Camping/UpdateCamping/UpdateCamping"
 import CampingReport from "pages/Camping/CampingReport/CampingReport"
+
+//Ambulance
+import GetAllAmbulance from "../pages/Ambulance/GetAllAmbulance/GetAllAmbulance";
+import AddAmbulance from "../pages/Ambulance/AddAmbulance/AddAmbulance";
+import UpdateAmbulance from "../pages/Ambulance/UpdateAmbulance/UpdateAmbulance"
 
 
 const userRoutes = [
@@ -46,6 +54,11 @@ const userRoutes = [
   { path: "/updateOperation", component: UpdateOperation },
   { path: "/operationReport", component: OperationReport },
 
+  //Ambulance
+  { path: "/getAllAmbulance", component: GetAllAmbulance },
+  { path: "/addAmbulance", component: AddAmbulance },
+  { path: "/updateAmbulance", component: UpdateAmbulance },
+  { path: "/ambulanceReport", component: AmbulanceReport },
   //Camping
   { path: "/getAllCamping", component: GetAllCamping },
   {path: "/addCamping", component: AddCamping},
