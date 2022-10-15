@@ -96,9 +96,6 @@ const SidebarContent = props => {
             <li>
               <Link to="/dashboard" className="waves-effect">
                 <i className="ti-home"></i>
-                <span className="badge rounded-pill bg-primary float-end">
-                  2
-                </span>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
@@ -159,6 +156,7 @@ const SidebarContent = props => {
             
             <li>
               <Link to="/#" className="has-arrow waves-effect">
+                <i className="ti-more"></i>
                 <span>Operation</span>
               </Link>
               <ul className="sub-menu" aria-expanded="true">

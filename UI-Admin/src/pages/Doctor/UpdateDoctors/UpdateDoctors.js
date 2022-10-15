@@ -74,10 +74,10 @@ const UpdateDoctors = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Add New Doctor | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Update New Doctor | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
         </MetaTags>
         <Container fluid={true}>
-          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Add New Doctor" />
+          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Update Doctor" />
 
           <Row>
             <Col>
