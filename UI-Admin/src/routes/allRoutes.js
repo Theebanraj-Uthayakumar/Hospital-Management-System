@@ -24,6 +24,10 @@ import AmbulanceReport from "pages/Ambulance/AmbulanceReport/AmbulanceReport"
 //Operation
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
 import UpdateOperation from "pages/Operation/UpdateOperation/UpdateOperation";
+import AddCamping from "pages/Camping/AddCamping/AddCamping"
+import GetAllCamping from "pages/Camping/GetAllCamping/GetAllCamping"
+import UpdateCamping from "pages/Camping/UpdateCamping/UpdateCamping"
+import CampingReport from "pages/Camping/CampingReport/CampingReport"
 
 //Ambulance
 import GetAllAmbulance from "../pages/Ambulance/GetAllAmbulance/GetAllAmbulance";
@@ -50,6 +54,11 @@ const userRoutes = [
   { path: "/addAmbulance", component: AddAmbulance },
   { path: "/updateAmbulance", component: UpdateAmbulance },
   { path: "/ambulanceReport", component: AmbulanceReport },
+  //Camping
+  { path: "/getAllCamping", component: GetAllCamping },
+  {path: "/addCamping", component: AddCamping},
+  {path: "/updateCamping", component:UpdateCamping},
+  {path:"/campingReport", component:CampingReport},
 
   //profile
   { path: "/profile", component: UserProfile },

@@ -15,26 +15,24 @@ import { Button } from "reactstrap"
 import Breadcrumbs from "../../../components/Common/Breadcrumb"
 import { useHistory } from "react-router-dom";
 
-const UpdateDoctors = () => {
+const UpdateCamping = () => {
 
-  const [name, setName] = useState("");
-  const [specialization, setSpecialization] = useState("");
-  const [slnc, setSlnc] = useState("");
-  const [experiance, setExperiance] = useState("");
-  const [gender, setGender] = useState("");
-  const [cposistion, setCposistion] = useState("");
-  const [whospital, setWhospital] = useState("");
-  const [whistory, setWhistory] = useState("");
+    const [hname, setName] = useState("");
+  const [time, setTime] = useState("");
+  const [venue, setVenue] = useState("");
+  const [cnumber, setCNumber] = useState("");
+  const [date, setDate] = useState("");
+  const [description, setDescription] = useState("");
 
-  const DoctorID = window.sessionStorage.getItem("DoctorID");
+  const CampingID = window.sessionStorage.getItem("CampingID");
 
 
-  const [doctors, setDoctors] = useState([]);
+  const [camping, SetOperation] = useState([]);
 
   const getRequest = () => {
-    fetch(`http://localhost:4000/api/v1/doctor/${DoctorID}`)
+    fetch(`http://localhost:4000/api/v1/camping/${CampingID}`)
     .then(response => response.json())
-    .then(data => setDoctors(data))
+    .then(data => SetOperation(data))
     .then(data => console.log(data))
   };
 
@@ -44,26 +42,24 @@ const UpdateDoctors = () => {
 
   const history = useHistory();
 
-  const UpdateDoctor =()=>{
+  const UpdateCamping =()=>{
       const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          DName: name ? name : doctors.DName,
-          Speci: specialization ? specialization : doctors.Speci,
-          SLNC: slnc ? slnc : doctors.SLNC,
-          Exper: experiance ? experiance : doctors.Exper,
-          Gender: gender ? gender : doctors.Gender,
-          CPosistion: cposistion ? cposistion : doctors.CPosistion,
-          WHospital: whospital ? whospital : doctors.WHospital,
-          WHistory: whistory ? whistory : doctors.WHistory
+            HName: hname ? hname : camping.HName,
+          Time: time ? time : camping.Time,
+          Venue: venue ? venue : camping.Venue,
+          CNumber: cnumber ? cnumber : camping.CNumber,
+          Date: date ? date : camping.Date,
+          Description: description ? description : camping.Description,
         })
       };
 
-      fetch(`http://localhost:4000/api/v1/doctor/${DoctorID}`, requestOptions)
+      fetch(`http://localhost:4000/api/v1/camping/${CampingID}`, requestOptions)
       .then(async response => {
         alert("Your data has been successfully updated...")
-        history.push("/getAllDoctors");
+        history.push("/getAllOperations");
       }).catch((err)=>{
         console.log(err);
         alert("Sorry, Something Error...")
@@ -74,10 +70,10 @@ const UpdateDoctors = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Update New Doctor | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Add New camping | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
         </MetaTags>
         <Container fluid={true}>
-          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Update Doctor" />
+          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Add New camping" />
 
           <Row>
             <Col>
@@ -89,133 +85,110 @@ const UpdateDoctors = () => {
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      Full Name
+                      camping Name
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Full Name"
-                        defaultValue={doctors.DName}
+                        placeholder="camping Name"
+                        defaultValue={camping.HName}
                         onChange={(e) => setName(e.target.value)}
                       />
                     </div>
                   </Row>
+
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      Specializations
+                      Time
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Specializations"
-                        defaultValue={doctors.Speci}
-                        onChange={(e) => setSpecialization(e.target.value)}
+                        placeholder="Time"
+                        defaultValue={camping.Time}
+                        onChange={(e) => setTime(e.target.value)}
                       />
                     </div>
                   </Row>
+
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      SLMC
+                      Venue
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="SLMC Number"
-                        defaultValue={doctors.SLNC}
-                        onChange={(e) => setSlnc(e.target.value)}
+                        placeholder="Venue"
+                        defaultValue={camping.Venue}
+                        onChange={(e) => setVenue(e.target.value)}
                       />
                     </div>
                   </Row>
-                  <Row className="mb-3">
-                    <label className="col-md-2 col-form-label">Gender</label>
-                    <div className="col-md-10">
-                      <select className="form-control" 
-                        value={doctors.Gender}
-                        onChange={(e) => setGender(e.target.value)}
-                      >
-                        {/* <option>Select</option> */}
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </div>
-                  </Row>
+
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      Experience
+                      CNumber
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Experience"
-                        defaultValue={doctors.Exper}
-                        onChange={(e) => setExperiance(e.target.value)}
+                        placeholder="Camping Number"
+                        defaultValue={camping.CNumber}
+                        onChange={(e) => setCNumber(e.target.value)}
                       />
                     </div>
                   </Row>
+
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      Current Position
+                      Date
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Current Position"
-                        defaultValue={doctors.CPosistion}
-                        onChange={(e) => setCposistion(e.target.value)}
+                        placeholder="Date"
+                        defaultValue={camping.Date}
+                        onChange={(e) => setDate(e.target.value)}
                       />
                     </div>
                   </Row>
+
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      Working Hospital
+                      Description
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="Working Hospital"
-                        defaultValue={doctors.WHospital}
-                        onChange={(e) => setWhospital(e.target.value)}
+                        placeholder="Description"
+                        defaultValue={camping.Description}
+                        onChange={(e) => setDescription(e.target.value)}
                       />
                     </div>
                   </Row>
-                  <Row className="mb-3">
-                    <label
-                      htmlFor="example-text-input"
-                      className="col-md-2 col-form-label"
-                    >
-                      Working History
-                    </label>
-                    <div className="col-md-10">
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Working History"
-                        defaultValue={doctors.WHistory}
-                        onChange={(e) => setWhistory(e.target.value)}
-                      />
-                    </div>
-                  </Row>
+                  
+                  
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
@@ -229,7 +202,7 @@ const UpdateDoctors = () => {
                       block
                       color="primary"
                       outline
-                      onClick={UpdateDoctor}
+                      onClick={UpdateCamping}
                     >
                       Update Now
                     </Button>
@@ -248,4 +221,4 @@ const UpdateDoctors = () => {
   )
 }
 
-export default UpdateDoctors
+export default UpdateCamping;
