@@ -24,33 +24,32 @@ const GetAllDoctors = () => {
     getRequest()
   }, [])
 
-    const deleteDoctor = (ID) =>{
-      swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-          fetch(`http://localhost:4000/api/v1/doctor/${ID}`, { method: 'DELETE' })
-          .then(() => 
+  const deleteDoctor = ID => {
+    swal({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this imaginary file!",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    }).then(willDelete => {
+      if (willDelete) {
+        fetch(`http://localhost:4000/api/v1/doctor/${ID}`, { method: "DELETE" })
+          .then(() =>
             swal("Poof! Your Data has been deleted!", {
               icon: "success",
             })
           )
-          .then(()=> window.location.reload());
-        }
-      });
-    }
+          .then(() => window.location.reload())
+      }
+    })
+  }
 
   const updateDoctor = ID => {
     window.sessionStorage.setItem("DoctorID", ID)
     history.push("/updateDoctors")
   }
 
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("")
 
   return (
     <React.Fragment>
@@ -60,7 +59,7 @@ const GetAllDoctors = () => {
             Doctors | Veltrix - Responsive Bootstrap 5 Admin Dashboard
           </title>
         </MetaTags>
-        <div className="container-fluid" style={{marginTop:"20px"}}>
+        <div className="container-fluid" style={{ marginTop: "20px" }}>
           <Row>
             <Col>
               <Card>
@@ -81,8 +80,8 @@ const GetAllDoctors = () => {
                               type="text"
                               className="form-control"
                               placeholder={"Search"}
-                              onChange={(e) => {
-                                setSearchTerm(e.target.value);
+                              onChange={e => {
+                                setSearchTerm(e.target.value)
                               }}
                             />
                             <span className="fa fa-search"></span>
@@ -117,47 +116,50 @@ const GetAllDoctors = () => {
                           </Tr>
                         </Thead>
                         <Tbody>
-                          {getDoctors?.filter((val) => {
-                            if (searchTerm == "") {
-                              return val;
-                            } else if (
-                              val.DName.toLocaleLowerCase().includes(
-                              searchTerm.toLocaleLowerCase()
-                            )) {
-                              return val;
-                            }
-                            }).map(item => (
-                            <Tr>
-                              <Th>{item.DName}</Th>
-                              <Td>{item.Speci}</Td>
-                              <Td>{item.SLNC}</Td>
-                              <Td>{item.Exper}</Td>
-                              <Td>{item.Gender}</Td>
-                              <Td>{item.CPosistion}</Td>
-                              <Td>{item.WHospital}</Td>
-                              <Td>{item.WHistory}</Td>
-                              <Td>
-                                <Button
-                                  block
-                                  color="danger"
-                                  outline
-                                  onClick={() => deleteDoctor(item._id)}
-                                >
-                                  D
-                                </Button>
-                              </Td>
-                              <Td>
-                                <Button
-                                  block
-                                  color="primary"
-                                  outline
-                                  onClick={() => updateDoctor(item._id)}
-                                >
-                                  E
-                                </Button>
-                              </Td>
-                            </Tr>
-                          ))}
+                          {getDoctors
+                            ?.filter(val => {
+                              if (searchTerm == "") {
+                                return val
+                              } else if (
+                                val.DName.toLocaleLowerCase().includes(
+                                  searchTerm.toLocaleLowerCase()
+                                )
+                              ) {
+                                return val
+                              }
+                            })
+                            .map(item => (
+                              <Tr>
+                                <Th>{item.DName}</Th>
+                                <Td>{item.Speci}</Td>
+                                <Td>{item.SLNC}</Td>
+                                <Td>{item.Exper}</Td>
+                                <Td>{item.Gender}</Td>
+                                <Td>{item.CPosistion}</Td>
+                                <Td>{item.WHospital}</Td>
+                                <Td>{item.WHistory}</Td>
+                                <Td>
+                                  <Button
+                                    block
+                                    color="danger"
+                                    outline
+                                    onClick={() => deleteDoctor(item._id)}
+                                  >
+                                    D
+                                  </Button>
+                                </Td>
+                                <Td>
+                                  <Button
+                                    block
+                                    color="primary"
+                                    outline
+                                    onClick={() => updateDoctor(item._id)}
+                                  >
+                                    E
+                                  </Button>
+                                </Td>
+                              </Tr>
+                            ))}
                         </Tbody>
                       </Table>
                     </div>
