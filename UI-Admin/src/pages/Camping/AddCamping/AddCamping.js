@@ -100,7 +100,7 @@ const AddCamping = () => {
                     <div className="col-md-10">
                       <input
                         className="form-control"
-                        type="text"
+                        type="date"
                         placeholder="Date"
                         value={date}
                         onChange={(e) => setDate(e.target.value)}
@@ -117,7 +117,7 @@ const AddCamping = () => {
                     <div className="col-md-10">
                       <input
                         className="form-control"
-                        type="text"
+                        type="time"
                         placeholder="Time"
                         value={time}
                           onChange={(e) => setTime(e.target.value)}
