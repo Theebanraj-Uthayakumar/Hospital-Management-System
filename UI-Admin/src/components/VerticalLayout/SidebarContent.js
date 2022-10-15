@@ -135,6 +135,30 @@ const SidebarContent = props => {
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-more"></i>
+                <span>Camping</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="true">
+                <li>
+                  <Link to="/addCamping">New Camping</Link>
+                </li>
+                <li>
+                  <Link to="/#" className="has-arrow">
+                    Get All Camping
+                  </Link>
+                  <ul className="sub-menu" aria-expanded="true">
+                    <li>
+                      <Link to="/getAllCamping">Camping List</Link>
+                    </li>
+                    <li>
+                      <Link to="/campingReport">Camping Report</Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li> 
+            
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
                 <span>Operation</span>
               </Link>
               <ul className="sub-menu" aria-expanded="true">
@@ -152,9 +176,7 @@ const SidebarContent = props => {
                   </ul>
                 </li>
               </ul>
-
-            
-            </li>    
+            </li>
           </ul>
         </div>
       </SimpleBar>
