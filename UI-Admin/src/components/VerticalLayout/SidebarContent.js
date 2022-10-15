@@ -80,10 +80,10 @@ const SidebarContent = props => {
           }
         }
       }
-      scrollElement(item);
+      scrollElement(item)
       return false
     }
-    scrollElement(item);
+    scrollElement(item)
     return false
   }
 
@@ -96,7 +96,9 @@ const SidebarContent = props => {
             <li>
               <Link to="/dashboard" className="waves-effect">
                 <i className="ti-home"></i>
-                <span className="badge rounded-pill bg-primary float-end">2</span>
+                <span className="badge rounded-pill bg-primary float-end">
+                  2
+                </span>
                 <span>{props.t("Dashboard")}</span>
               </Link>
             </li>
@@ -120,9 +122,14 @@ const SidebarContent = props => {
                     <li>
                       <Link to="/getAllDoctors">Doctors List</Link>
                     </li>
+                    <li>
+                      <Link to="/doctorsReport">Doctors Report</Link>
+                    </li>
                   </ul>
                 </li>
               </ul>
+
+            
             </li>
 
             <li>
@@ -145,8 +152,28 @@ const SidebarContent = props => {
                   </ul>
                 </li>
               </ul>
+            </li> 
+            
+            <li>
+              <Link to="/#" className="has-arrow waves-effect">
+                <span>Operation</span>
+              </Link>
+              <ul className="sub-menu" aria-expanded="true">
+                <li>
+                  <Link to="/addOperation">Add Operation</Link>
+                </li>
+                <li>
+                  <Link to="/#" className="has-arrow">
+                    Get All Operation Deatils
+                  </Link>
+                  <ul className="sub-menu" aria-expanded="true">
+                    <li>
+                      <Link to="/getAllOperation">Operation List</Link>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
             </li>
-
           </ul>
         </div>
       </SimpleBar>
