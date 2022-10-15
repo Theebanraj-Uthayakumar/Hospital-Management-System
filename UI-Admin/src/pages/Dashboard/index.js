@@ -1,18 +1,12 @@
 import PropTypes from 'prop-types'
-import React,{useState} from "react"
+import React,{useEffect, useState} from "react"
 import MetaTags from 'react-meta-tags';
 import {
   Container,
   Row,
   Col,
-  Button,
   Card,
   CardBody,
-  Input,
-  Dropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu
 } from "reactstrap"
 import { Link } from "react-router-dom"
 
@@ -20,10 +14,10 @@ import { Link } from "react-router-dom"
 import SimpleBar from "simplebar-react";
 
 // import images
-import servicesIcon1 from "../../assets/images/services-icon/01.png";
-import servicesIcon2 from "../../assets/images/services-icon/02.png";
-import servicesIcon3 from "../../assets/images/services-icon/03.png";
-import servicesIcon4 from "../../assets/images/services-icon/04.png";
+import doctor from "../../assets/images/services-icon/doctor.png";
+import operation from "../../assets/images/services-icon/operation.png";
+import ambulance from "../../assets/images/services-icon/ambulance.png";
+import camping from "../../assets/images/services-icon/camping.png";
 
 import "chartist/dist/scss/chartist.scss";
 
@@ -31,10 +25,46 @@ import "chartist/dist/scss/chartist.scss";
 import { withTranslation } from "react-i18next"
 
 const Dashboard = props => {
-  const [menu, setMenu] = useState(false)
-  const toggle = () => {
-    setMenu(!menu)
+  const [getDoctors, setGetDoctors] = useState(0)
+  const [getOperation, setGetOperation] = useState(0)
+  const [getAmpulance, setGetAmpulance] = useState(0)
+  const [getCamping, setGetCamping] = useState(0)
+
+  const doctorsAPICall = () =>{
+    fetch("http://localhost:4000/api/v1/doctor")
+    .then(response => response.json())
+    .then(data => setGetDoctors(data.length))
+    .then(data => console.log(data))
   }
+
+  const operationAPICall = () =>{
+    fetch("http://localhost:4000/api/v1/operation")
+    .then(response => response.json())
+    .then(data => setGetOperation(data.length))
+    .then(data => console.log(data))
+  }
+
+  const ampulanceAPICall = () =>{
+    fetch("http://localhost:4000/api/v1/ambulance")
+    .then(response => response.json())
+    .then(data => setGetAmpulance(data.length))
+    .then(data => console.log(data))
+  }
+
+  const campingAPICall = () =>{
+    fetch("http://localhost:4000/api/v1/camping")
+    .then(response => response.json())
+    .then(data => setGetCamping(data.length))
+    .then(data => console.log(data))
+  }
+
+  useEffect(()=>{
+    doctorsAPICall();
+    operationAPICall();
+    ampulanceAPICall();
+    campingAPICall();
+  })
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -51,7 +81,7 @@ const Dashboard = props => {
                 </ol>
               </Col>
 
-              <Col md="4">
+              {/* <Col md="4">
                 <div className="float-end d-none d-md-block">
                   <Dropdown isOpen={menu} toggle={toggle}>
                     <DropdownToggle color="primary" className="btn btn-primary dropdown-toggle waves-effect waves-light">
@@ -66,7 +96,7 @@ const Dashboard = props => {
                     </DropdownMenu>
                   </Dropdown>
                 </div>
-              </Col>
+              </Col> */}
             </Row>
           </div>
           <Row>
@@ -75,26 +105,23 @@ const Dashboard = props => {
                 <CardBody>
                   <div className="mb-4">
                     <div className="float-start mini-stat-img me-4">
-                      <img src={servicesIcon1} alt="" />
+                      <img src={doctor} alt="" />
                     </div>
                     <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
-                      Orders
+                      Doctors
                     </h5>
                     <h4 className="fw-medium font-size-24">
-                      1,685{" "}
+                      {getDoctors}{" "}
                       <i className="mdi mdi-arrow-up text-success ms-2"></i>
                     </h4>
-                    <div className="mini-stat-label bg-success">
-                      <p className="mb-0">+ 12%</p>
-                    </div>
                   </div>
                   <div className="pt-2">
                     <div className="float-end">
-                      <Link to="#" className="text-white-50">
+                      <Link to="/getAllDoctors" className="text-white-50">
                         <i className="mdi mdi-arrow-right h5"></i>
                       </Link>
                     </div>
-                    <p className="text-white-50 mb-0 mt-1">Since last month</p>
+                    <p className="text-white-50 mb-0 mt-1">View Doctors</p>
                   </div>
                 </CardBody>
               </Card>
@@ -104,18 +131,15 @@ const Dashboard = props => {
                 <CardBody>
                   <div className="mb-4">
                     <div className="float-start mini-stat-img me-4">
-                      <img src={servicesIcon2} alt="" />
+                      <img src={operation} alt="" />
                     </div>
                     <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
-                      Revenue
+                    Operation
                     </h5>
                     <h4 className="fw-medium font-size-24">
-                      52,368{" "}
+                      {getOperation}{" "}
                       <i className="mdi mdi-arrow-down text-danger ms-2"></i>
                     </h4>
-                    <div className="mini-stat-label bg-danger">
-                      <p className="mb-0">- 28%</p>
-                    </div>
                   </div>
                   <div className="pt-2">
                     <div className="float-end">
@@ -134,18 +158,15 @@ const Dashboard = props => {
                 <CardBody>
                   <div className="mb-4">
                     <div className="float-start mini-stat-img me-4">
-                      <img src={servicesIcon3} alt="" />
+                      <img src={ambulance} alt="" />
                     </div>
                     <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
-                      Average Price
+                      Ambulance
                     </h5>
                     <h4 className="fw-medium font-size-24">
-                      15.8{" "}
+                      {getAmpulance}{" "}
                       <i className="mdi mdi-arrow-up text-success ms-2"></i>
                     </h4>
-                    <div className="mini-stat-label bg-info">
-                      <p className="mb-0"> 00%</p>
-                    </div>
                   </div>
                   <div className="pt-2">
                     <div className="float-end">
@@ -164,18 +185,15 @@ const Dashboard = props => {
                 <CardBody>
                   <div className="mb-4">
                     <div className="float-start mini-stat-img me-4">
-                      <img src={servicesIcon4} alt="" />
+                      <img src={camping} alt="" />
                     </div>
                     <h5 className="font-size-16 text-uppercase mt-0 text-white-50">
-                      Product Sold
+                    Camping
                     </h5>
                     <h4 className="fw-medium font-size-24">
-                      2436{" "}
+                      {getCamping}{" "}
                       <i className="mdi mdi-arrow-up text-success ms-2"></i>
                     </h4>
-                    <div className="mini-stat-label bg-warning">
-                      <p className="mb-0">+ 84%</p>
-                    </div>
                   </div>
                   <div className="pt-2">
                     <div className="float-end">

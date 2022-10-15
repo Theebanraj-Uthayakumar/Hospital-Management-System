@@ -19,7 +19,7 @@ export default function header() {
                                     <nav className="menu-nav show">
                                         <div className="logo">
                                             <a href="/#">
-                                                <img src="images/LOGO final.png" alt="Logo" width="100px" />
+                                                <img src="images/LOGO final.png" alt="Logo" width="70px" />
                                             </a>
                                         </div>
                                         <div className="navbar-wrap main-menu d-none d-lg-flex">
@@ -37,7 +37,7 @@ export default function header() {
                                                             <a href="/AmbulanceList">Ambulance Details</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/Camping_Details">Camping Details</a>
+                                                            <a href="/Camping">Camping Details</a>
                                                         </li>
                                                         <li>
                                                             <a href="/Operation">Operation Details</a>

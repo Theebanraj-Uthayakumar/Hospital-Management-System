@@ -6,6 +6,7 @@ import Footer from "./component/templates/footer";
 import Operation2 from "./component/pages/Operation2";
 import Doctor from './component/pages/doctos';
 import Operation from './component/pages/Operation';
+import Camping from './component/pages/Camping';
 import Home from "./component/pages/Home/Home";
 import AmbulanceList from "./component/pages/AmbulanceList";
 import AmbulanceModal from "./component/pages/AmbulanceModal/AmbulanceModal";
@@ -21,6 +22,7 @@ const Routing = () => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/Operation" component={Operation} />
+      <Route path="/Camping" component={Camping} />
       <Route path="/Operation2" component={Operation2} />
       <Route path="/check" component={Pharmacy2}/>
       <Route path="/check1" component={Pharmacy1}/>

@@ -9,6 +9,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import GrainIcon from "@material-ui/icons/Grain";
 import axios from "axios";
 import SearchIcon from "@material-ui/icons/Search";
+// import profileImg from "images/profile.jpeg"
 // import ReactPaginate from "react-paginate";
 // import DoctorImg from "./../../../public/images/doctor.jpeg";
 
@@ -139,10 +140,10 @@ function Doctor() {
                         <div className="pagination-wrap_column1">
                           <img
                             // src={DoctorImg}
-                            src={item.selectedFile}
+                            src="images/profile.jpeg"
                             alt="Profile01"
                             className="pagination-wrap_image"
-                            height="350px"
+                            height="300px"
                             width="200px"
                           />
                         </div>

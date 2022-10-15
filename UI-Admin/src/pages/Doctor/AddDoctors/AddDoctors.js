@@ -47,7 +47,6 @@ const AddDoctors = () => {
         error_Working_Hospital === "" &&
         error_Gender === ""
       ) {
-
         const requestOptions = {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -71,7 +70,11 @@ const AddDoctors = () => {
           })
           .catch(err => {
             console.log(err)
-            swal("Warning!", "Something went wrong, Pleace try again!", "warning")
+            swal(
+              "Warning!",
+              "Something went wrong, Pleace try again!",
+              "warning"
+            )
           })
       } else {
         swal("Warning!", "Please Enter a valid Input...!", "warning")
@@ -98,7 +101,7 @@ const AddDoctors = () => {
       setSpecialization(e)
       setErroSpecialization("")
     } else if (e === "") {
-      setErroSpecialization("Please Enter a Speculation")
+      setErroSpecialization("Please Enter a Specialization")
     } else {
       setErroSpecialization("Please Enter a valid Input")
     }
