@@ -34,7 +34,7 @@ export default function header() {
                                                             <a href="/doctors">Doctors</a>
                                                         </li>
                                                         <li>
-                                                            <a href="/Ambulance_Details">Ambulance Details</a>
+                                                            <a href="/AmbulanceList">Ambulance Details</a>
                                                         </li>
                                                         <li>
                                                             <a href="/Camping_Details">Camping Details</a>
