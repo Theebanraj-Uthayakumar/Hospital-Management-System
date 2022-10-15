@@ -21,6 +21,14 @@ const AddDoctors = () => {
   const [whospital, setWhospital] = useState("");
   const [whistory, setWhistory] = useState("");
 
+  const [error_Name, setErrorName] = useState();
+  const [error_Specialization, setErroSpecialization] = useState();
+  const [error_SLMC, setErrorSLMC] = useState();
+  const [error_Experience, setErrorExperience] = useState();
+  const [error_Current_Position, setErrorCurrentPosition] = useState();
+  const [error_Working_Hospital, setErrorWorkingHospital] = useState();
+  const [error_Working_History, setErrorWorkingHistory] = useState();
+
   const CreateDoctor =()=>{
     if (
       name === "" ||
@@ -63,6 +71,111 @@ const AddDoctors = () => {
     }
   }
 
+  const textNameInput = (e) =>{
+    var letters = /^[A-Za-z ]+$/;
+    if(e.match(letters))
+    {
+      setName(e);
+      setErrorName();
+    }else if(e === ''){
+      setErrorName("Please Enter a Name");
+    }
+   else
+    {
+      setErrorName("Please Enter a valid Input");
+    }
+  }
+
+  const textSpecilationInput = (e) =>{
+    var letters = /^[A-Za-z ]+$/;
+    if(e.match(letters))
+    {
+      setSpecialization(e);
+      setErroSpecialization();
+    }else if(e === ''){
+      setErroSpecialization("Please Enter a Speculation");
+    }
+   else
+    {
+      setErroSpecialization("Please Enter a valid Input");
+    }
+  }
+
+  const textSLMCInput = (e) =>{
+    var letters = /^[0-9]+$/;
+    if(e.match(letters))
+    {
+      setSlnc(e);
+      setErrorSLMC();
+    }else if(e === ''){
+      setErrorSLMC("Please Enter a SLMC");
+    }
+   else
+    {
+      setErrorSLMC("Please Enter a valid Input");
+    }
+  }
+
+  const textExperienceInput = (e) =>{
+    var letters = /^[A-Za-z0-9 ]+$/;
+    if(e.match(letters))
+    {
+      setExperiance(e);
+      setErrorExperience();
+    }else if(e === ''){
+      setErrorExperience("Please Enter a Experience");
+    }
+   else
+    {
+      setErrorExperience("Please Enter a valid Input");
+    }
+  }
+
+  const textCurrentPositionInput = (e) =>{
+    var letters = /^[A-Za-z ]+$/;
+    if(e.match(letters))
+    {
+      setCposistion(e);
+      setErrorCurrentPosition();
+    }else if(e === ''){
+      setErrorCurrentPosition("Please Enter a Current Position");
+    }
+   else
+    {
+      setErrorCurrentPosition("Please Enter a valid Input");
+    }
+  }
+
+  const textWorkingHospitalInput = (e) =>{
+    var letters = /^[A-Za-z0-9 ]+$/;
+    if(e.match(letters))
+    {
+      setWhospital(e);
+      setErrorWorkingHospital();
+    }else if(e === ''){
+      setErrorWorkingHospital("Please Enter a Working Hospital");
+    }
+   else
+    {
+      setErrorWorkingHospital("Please Enter a valid Input");
+    }
+  }
+
+  const textWorkingHistoryInput = (e) =>{
+    var letters = /^[A-Za-z0-9 ]+$/;
+    if(e.match(letters))
+    {
+      setWhistory(e);
+      setErrorWorkingHistory();
+    }else if(e === ''){
+      setErrorWorkingHistory("Please Enter a Working History");
+    }
+   else
+    {
+      setErrorWorkingHistory("Please Enter a valid Input");
+    }
+  }
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -89,9 +202,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="Full Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        // value={name}
+                        onChange={(e) => textNameInput(e.target.value)}
                       />
+                      {error_Name? <span style={{color:"red", fontSize:12}}>{error_Name}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
@@ -106,9 +220,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="Specializations"
-                        value={specialization}
-                        onChange={(e) => setSpecialization(e.target.value)}
+                        // value={specialization}
+                        onChange={(e) => textSpecilationInput(e.target.value)}
                       />
+                      {error_Specialization? <span style={{color:"red", fontSize:12}}>{error_Specialization}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
@@ -123,9 +238,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="SLMC Number"
-                        value={slnc}
-                          onChange={(e) => setSlnc(e.target.value)}
+                        // value={slnc}
+                        onChange={(e) => textSLMCInput(e.target.value)}
                       />
+                      {error_SLMC? <span style={{color:"red", fontSize:12}}>{error_SLMC}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
@@ -153,9 +269,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="Experience"
-                        value={experiance}
-                        onChange={(e) => setExperiance(e.target.value)}
+                        // value={experiance}
+                        onChange={(e) => textExperienceInput(e.target.value)}
                       />
+                      {error_Experience? <span style={{color:"red", fontSize:12}}>{error_Experience}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
@@ -170,9 +287,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="Current Position"
-                        value={cposistion}
-                        onChange={(e) => setCposistion(e.target.value)}
+                        // value={cposistion}
+                        onChange={(e) => textCurrentPositionInput(e.target.value)}
                       />
+                      {error_Current_Position? <span style={{color:"red", fontSize:12}}>{error_Current_Position}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
@@ -187,9 +305,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="Working Hospital"
-                        value={whospital}
-                        onChange={(e) => setWhospital(e.target.value)}
+                        // value={whospital}
+                        onChange={(e) => textWorkingHospitalInput(e.target.value)}
                       />
+                      {error_Working_Hospital? <span style={{color:"red", fontSize:12}}>{error_Working_Hospital}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
@@ -204,9 +323,10 @@ const AddDoctors = () => {
                         className="form-control"
                         type="text"
                         placeholder="Working History"
-                        value={whistory}
-                        onChange={(e) => setWhistory(e.target.value)}
+                        // value={whistory}
+                        onChange={(e) => textWorkingHistoryInput(e.target.value)}
                       />
+                      {error_Working_History? <span style={{color:"red", fontSize:12}}>{error_Working_History}</span>:null}
                     </div>
                   </Row>
                   <Row className="mb-3">
