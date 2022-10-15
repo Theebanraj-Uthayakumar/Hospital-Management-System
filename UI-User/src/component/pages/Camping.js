@@ -114,14 +114,21 @@ function Camping() {
                                                 <div className="header">Camping Name :{item.HName}</div>
 
                                                 <div className="meta font-weight-bold">
-                                                    <p>Time</p>
+                                                    <h4>Time</h4>
                                                 </div>
                                                 <div className="description">
                                                     {item.Time}
                                                 </div>
+
+                                                <div className="meta font-weight-bold">
+                                                    <h4>Camping Number</h4>
+                                                </div>
+                                                <div className="description">
+                                                    {item.CNumber}
+                                                </div>
                                                 
                                                 <div className="meta font-weight-bold">
-                                                    <p>Venue</p>
+                                                    <h4>Venue</h4>
                                                 </div>
                                                 <div className="description">
                                                     {item.Venue}
@@ -129,17 +136,12 @@ function Camping() {
 
                                                 </div>
                                                 <div className="extra content">
-                                                <span className="right floated">Date {item.Date}</span>
+                                                <span className="right floated">Date {item.Date.substring(0, 10)}</span>
                                                 </div>
                                             </div>
                                             </div>   
                                             </div>                   
                         ))}                                        
-                        
-                        <CampingModel
-                            show={modalShow}
-                            onHide={() => setModalShow(false)}
-                        />
 
                         <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
                                         <ul>
