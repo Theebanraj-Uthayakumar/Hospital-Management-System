@@ -5,7 +5,6 @@ import { Row, Col, Card, CardBody, CardTitle, CardSubtitle } from "reactstrap"
 import { Table, Thead, Tbody, Tr, Th, Td } from "react-super-responsive-table"
 import "react-super-responsive-table/dist/SuperResponsiveTableStyle.css"
 //Import Breadcrumb
-import Breadcrumbs from "../../../components/Common/Breadcrumb"
 import { Button } from "reactstrap"
 import { useHistory } from "react-router-dom"
 
@@ -51,6 +50,8 @@ const GetAllDoctors = () => {
     history.push("/updateDoctors")
   }
 
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -59,22 +60,38 @@ const GetAllDoctors = () => {
             Doctors | Veltrix - Responsive Bootstrap 5 Admin Dashboard
           </title>
         </MetaTags>
-        <div className="container-fluid">
-          <Breadcrumbs
-            maintitle="Veltrix"
-            title="Tables"
-            breadcrumbItem="Responsive Table"
-          />
-
+        <div className="container-fluid" style={{marginTop:"20px"}}>
           <Row>
             <Col>
               <Card>
                 <CardBody>
-                  <CardTitle className="h4">Get All Doctors </CardTitle>
+
+                        <Row className="align-items-center">
+      <Col sm={6}>
+      <CardTitle className="h4">Get All Doctors </CardTitle>
                   <p className="card-title-desc">
                     This is an experimental awesome solution for responsive
                     tables with complex data.
                   </p>
+      </Col>
+      <Col sm={6}>
+        <div className="float-end d-none d-md-block">
+        <form className="app-search d-none d-lg-block">
+              <div className="position-relative">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={"Search"}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                  }}
+                />
+                <span className="fa fa-search"></span>
+              </div>
+            </form>
+        </div>
+      </Col>
+      </Row>
 
                   <div className="table-rep-plugin">
                     <div
@@ -101,7 +118,17 @@ const GetAllDoctors = () => {
                           </Tr>
                         </Thead>
                         <Tbody>
-                          {getDoctors?.map(item => (
+                          {getDoctors?.filter((val) => {
+                    if (searchTerm == "") {
+                      return val;
+                    } else if (
+                      val.DName.toLocaleLowerCase().includes(
+                        searchTerm.toLocaleLowerCase()
+                      )
+                    ) {
+                      return val;
+                    }
+                  }).map(item => (
                             <Tr>
                               <Th>{item.DName}</Th>
                               <Td>{item.Speci}</Td>

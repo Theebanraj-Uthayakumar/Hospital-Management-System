@@ -37,6 +37,7 @@ const GetAllOperation = () => {
     window.sessionStorage.setItem("OperationID", ID)
     history.push("/updateOperation")
   }
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <React.Fragment>
@@ -45,11 +46,7 @@ const GetAllOperation = () => {
           <title>Operation | Admin Dashboard</title>
         </MetaTags>
         <div className="container-fluid">
-          <Breadcrumbs
-            maintitle="Veltrix"
-            title="Tables"
-            breadcrumbItem="Responsive Table"
-          />
+          
 
           <Row>
             <Col>
@@ -57,6 +54,30 @@ const GetAllOperation = () => {
                 <CardBody>
                   <CardTitle className="h4">Get All Operation </CardTitle>
                   <p className="card-title-desc"></p>
+                  
+                  <Row className="align-items-center">
+      <Col sm={6}>
+      <CardTitle className="h4">Get All Operation </CardTitle>
+                  <p className="card-title-desc"></p>
+      </Col>
+      <Col sm={6}>
+        <div className="float-end d-none d-md-block">
+        <form className="app-search d-none d-lg-block">
+              <div className="position-relative">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={"Search"}
+                  onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                  }}
+                />
+                <span className="fa fa-search"></span>
+              </div>
+            </form>
+        </div>
+      </Col>
+      </Row>
 
                   <div className="table-rep-plugin">
                     <div
@@ -80,7 +101,18 @@ const GetAllOperation = () => {
                           </Tr>
                         </Thead>
                         <Tbody>
-                          {getOperation?.map(item => (
+                          {getOperation?.filter((val) => {
+                    if (searchTerm == "") {
+                      return val;
+                    } else if (
+                      val.OName.toLocaleLowerCase().includes(
+                        searchTerm.toLocaleLowerCase()
+                      )
+                    ) {
+                      return val;
+                    }
+                  })
+                          .map(item => (
                             <Tr>
                               <Th>{item.OName}</Th>
                               <Td>{item.Date}</Td>

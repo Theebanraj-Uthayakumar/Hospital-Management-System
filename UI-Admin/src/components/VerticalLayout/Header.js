@@ -104,7 +104,7 @@ const Header = props => {
           </div>
 
           <div className="d-flex">
-            <form className="app-search d-none d-lg-block">
+            {/* <form className="app-search d-none d-lg-block">
               <div className="position-relative">
                 <input
                   type="text"
@@ -113,7 +113,7 @@ const Header = props => {
                 />
                 <span className="fa fa-search"></span>
               </div>
-            </form>
+            </form> */}
 
             <Dropdown
               className="d-inline-block d-lg-none ms-2"
