@@ -143,11 +143,14 @@ const SidebarContent = props => {
                 </li>
                 <li>
                   <Link to="/#" className="has-arrow">
-                    Get All Operation Deatils
+                    Operation Deatils 
                   </Link>
                   <ul className="sub-menu" aria-expanded="true">
                     <li>
                       <Link to="/getAllOperation">Operation List</Link>
+                    </li>
+                    <li>
+                      <Link to="/operationReport">Operation Report</Link>
                     </li>
                   </ul>
                 </li>

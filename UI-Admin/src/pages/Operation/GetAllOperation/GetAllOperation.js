@@ -57,7 +57,7 @@ const GetAllOperation = () => {
                   
                   <Row className="align-items-center">
       <Col sm={6}>
-      <CardTitle className="h4">Get All Operation </CardTitle>
+      
                   <p className="card-title-desc"></p>
       </Col>
       <Col sm={6}>
