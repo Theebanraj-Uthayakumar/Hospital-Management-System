@@ -117,7 +117,7 @@ const GetAllCamping = () => {
                                     <Td>{item.Time}</Td>
                                     <Td>{item.Venue}</Td>
                                     <Td>{item.CNumber}</Td>
-                                    <Td>{item.Date}</Td>
+                                    <Td>{item.Date.substring(0, 10)}</Td>
                                     <Td>{item.Description}</Td>
                                     <Td>
                                         <Button

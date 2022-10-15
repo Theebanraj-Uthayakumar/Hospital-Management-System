@@ -149,6 +149,9 @@ const SidebarContent = props => {
                     <li>
                       <Link to="/getAllCamping">Camping List</Link>
                     </li>
+                    <li>
+                      <Link to="/campingReport">Camping Report</Link>
+                    </li>
                   </ul>
                 </li>
               </ul>
