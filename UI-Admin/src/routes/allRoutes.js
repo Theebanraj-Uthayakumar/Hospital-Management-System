@@ -23,6 +23,10 @@ import DoctorsReport from "pages/Doctor/DoctorsReport/DoctorsReport"
 //Operation
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
 import UpdateOperation from "pages/Operation/UpdateOperation/UpdateOperation";
+import AddCamping from "pages/Camping/AddCamping/AddCamping"
+import GetAllCamping from "pages/Camping/GetAllCamping/GetAllCamping"
+import UpdateCamping from "pages/Camping/UpdateCamping/UpdateCamping"
+import CampingReport from "pages/Camping/CampingReport/CampingReport"
 
 
 const userRoutes = [
@@ -38,6 +42,12 @@ const userRoutes = [
   { path: "/getAllOperation", component: GetAllOperation },
   { path: "/addOperation", component: AddOperation },
   { path: "/updateOperation", component: UpdateOperation },
+
+  //Camping
+  { path: "/getAllCamping", component: GetAllCamping },
+  {path: "/addCamping", component: AddCamping},
+  {path: "/updateCamping", component:UpdateCamping},
+  {path:"/campingReport", component:CampingReport},
 
   //profile
   { path: "/profile", component: UserProfile },

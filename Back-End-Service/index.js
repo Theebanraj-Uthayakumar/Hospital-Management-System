@@ -10,6 +10,7 @@ const cors = require("cors");
 //Import Routes
 const usermanagement = require("./routes/doctor.routes");
 const operationmanagement = require("./routes/operation.routes");
+const campingmanagement = require("./routes/camping.routes");
 const authRoute = require("./controller/auth.controller");
 
 const app = express();
@@ -23,6 +24,7 @@ connectDB();
 //Route Middlewares
 app.use("/api/v1/doctor", usermanagement);
 app.use("/api/v1/operation", operationmanagement);
+app.use("/api/v1/camping", campingmanagement);
 app.use("/api/v1/auth", authRoute);
 
 
