@@ -17,21 +17,21 @@ import { useHistory } from "react-router-dom";
 
 const UpdateOperation = () => {
 
-    const [name, setName] = useState("");
-    const [date, setDate] = useState("");
-    const [time, setTime] = useState("");
-    const [description, setDescription] = useState("");
-    const [OName, setDname] = useState("");;
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [description, setDescription] = useState("");
+  const [dname, setDname] = useState("");
 
   const OperationID = window.sessionStorage.getItem("OperationID");
 
 
-  const [operation, SetOperation] = useState([]);
+  const [operation, setOperation] = useState([]);
 
   const getRequest = () => {
     fetch(`http://localhost:4000/api/v1/operation/${OperationID}`)
     .then(response => response.json())
-    .then(data => SetOperation(data))
+    .then(data => setOperation(data))
     .then(data => console.log(data))
   };
 
@@ -57,7 +57,7 @@ const UpdateOperation = () => {
       fetch(`http://localhost:4000/api/v1/operation/${OperationID}`, requestOptions)
       .then(async response => {
         alert("Your data has been successfully updated...")
-        history.push("/getAllOperations");
+        history.push("/getAllOperation");
       }).catch((err)=>{
         console.log(err);
         alert("Sorry, Something Error...")
@@ -68,10 +68,10 @@ const UpdateOperation = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Add New Operation | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Add Operation | MEDWIN Hospital -  Admin Dashboard</title>
         </MetaTags>
         <Container fluid={true}>
-          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Add New Operation" />
+          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Add New Doctor" />
 
           <Row>
             <Col>
@@ -117,24 +117,41 @@ const UpdateOperation = () => {
                       htmlFor="example-text-input"
                       className="col-md-2 col-form-label"
                     >
-                      Time
+                       Time
                     </label>
                     <div className="col-md-10">
                       <input
                         className="form-control"
                         type="text"
-                        placeholder="STime"
+                        placeholder="Time"
                         defaultValue={operation.Time}
                         onChange={(e) => setTime(e.target.value)}
                       />
                     </div>
                   </Row>
+                  <Row className="mb-3">
+                    <label
+                      htmlFor="example-text-input"
+                      className="col-md-2 col-form-label"
+                    >
+                      Description
+                    </label>
+                    <div className="col-md-10">
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Description"
+                        defaultValue={operation.Description}
+                        onChange={(e) => setDescription(e.target.value)}
+                      />
+                    </div>
+                  </Row>
                   {/* <Row className="mb-3">
-                    <label className="col-md-2 col-form-label">DName</label>
+                    <label className="col-md-2 col-form-label">Gende</label>
                     <div className="col-md-10">
                       <select className="form-control" 
                         value={operation.DName}
-                        onChange={(e) => setGender(e.target.value)}
+                        onChange={(e) => setDname(e.target.value)}
                       > */}
                         {/* <option>Select</option> */}
                         {/* <option value="Male">Male</option>
@@ -142,23 +159,6 @@ const UpdateOperation = () => {
                       </select>
                     </div>
                   </Row> */}
-                  <Row className="mb-3">
-                    <label
-                      htmlFor="example-text-input"
-                      className="col-md-2 col-form-label"
-                    >
-                      Experience
-                    </label>
-                    <div className="col-md-10">
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Experience"
-                        defaultValue={operation.Description}
-                        onChange={(e) => setDescription(e.target.value)}
-                      />
-                    </div>
-                  </Row>
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"

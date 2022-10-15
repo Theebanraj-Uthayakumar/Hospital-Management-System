@@ -34,18 +34,10 @@ const UserProfile = props => {
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"))
-      if (process.env.REACT_APP_DEFAULTAUTH === "firebase") {
-        setname(obj.displayName)
-        setemail(obj.email)
+        console.log(obj);
+        setname(obj.user.name);
+        setemail(obj.user.email);
         setidx(obj.uid)
-      } else if (
-        process.env.REACT_APP_DEFAULTAUTH === "fake" ||
-        process.env.REACT_APP_DEFAULTAUTH === "jwt"
-      ) {
-        setname(obj.username)
-        setemail(obj.email)
-        setidx(obj.uid)
-      }
       setTimeout(() => {
         props.resetProfileFlag();
       }, 3000);
@@ -85,11 +77,11 @@ const UserProfile = props => {
                         className="avatar-md rounded-circle img-thumbnail"
                       />
                     </div>
-                    <div className="align-self-center flex-1">
+                    <div className="align-self-center flex-1" style={{paddingLeft: 20}}>
                       <div className="text-muted">
                         <h5>{name}</h5>
                         <p className="mb-1">{email}</p>
-                        <p className="mb-0">Id no: #{idx}</p>
+                        {/* <p className="mb-0">Id no: #{idx}</p> */}
                       </div>
                     </div>
                   </div>

@@ -121,19 +121,7 @@ const AddOperation = () => {
                       />
                     </div>
                   </Row>
-                  {/* <Row className="mb-3">
-                    <label className="col-md-2 col-form-label">dname</label>
-                    <div className="col-md-10">
-                      <select className="form-control" 
-                        value={dname}
-                        onChange={(e) => setDname(e.target.value)}
-                      > */}
-                        {/* <option>Select</option> */}
-                        {/* <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                      </select>
-                    </div>
-                  </Row> */}
+                  
                   
                   <Row className="mb-3">
                     <label
@@ -170,23 +158,7 @@ const AddOperation = () => {
                       />
                     </div>
                   </Row>
-                  {/* <Row className="mb-3">
-                    <label
-                      htmlFor="example-text-input"
-                      className="col-md-2 col-form-label"
-                    >
-                      Working History
-                    </label>
-                    <div className="col-md-10">
-                      <input
-                        className="form-control"
-                        type="text"
-                        placeholder="Working History"
-                        value={whistory}
-                        onChange={(e) => setWhistory(e.target.value)}
-                      />
-                    </div>
-                  </Row> */}
+                  
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
@@ -220,3 +192,4 @@ const AddOperation = () => {
 }
 
 export default AddOperation
+
