@@ -27,13 +27,21 @@ function AmbulanceModal(props) {
             >
             <Modal.Header closeButton>
                 <Modal.Title id="contained-modal-title-vcenter">
-                Ambulance All Data
+                {Ambulance.VNo}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <h4>{AmbulanceID}</h4>
-                <h3>Vehicle Chassis No</h3>
-                <h4>{Ambulance.VChassisno}</h4>
+                <div className="center">
+
+                    <h4>Vehicle Chassis No</h4>
+                    <p>{Ambulance.VChassisno}</p>
+
+                    <h4>Driver Licence</h4>
+                    <p>{Ambulance.DLicence}</p>
+
+                    <h4>Description</h4>
+                    <p>{Ambulance.Description}</p>
+                </div>
             </Modal.Body>
             <Modal.Footer>
                 <Button onClick={props.onHide}>Close</Button>

@@ -111,20 +111,23 @@ function AmbulanceList() {
                                                 <img src="https://img.freepik.com/free-vector/emergency-ambulance-white-background_1308-101723.jpg?t=st=1662725835~exp=1662726435~hmac=a88d1ef18fb0f02d3b9f6b2ab6f910969b7fb9e728bccd9fa80271b5ac8f49af" />
                                                 </div>
                                                 <div className="content">
-                                                <div className="header">Vehicle No :{item.VNo}</div>
+                                                <div className="header">Vehicle No :  {item.VNo}</div>
+
 
                                                 <div className="meta font-weight-bold">
-                                                    <p>Vehicle Chassis No</p>
-                                                </div>
-                                                <div className="description">
-                                                    {item.VChassisno}
-                                                </div>
-
-                                                <div className="meta font-weight-bold">
-                                                    <p>Driver Name</p>
+                                                    <br></br>
+                                                    <h5>Driver Name</h5>
                                                 </div>
                                                 <div className="description">
                                                     {item.DName}
+                                                </div>
+
+                                                <div className="meta font-weight-bold">
+                                                    <br></br>
+                                                    <h5>Driver Contact No</h5>
+                                                </div>
+                                                <div className="description">
+                                                    {item.DContactno}
                                                 </div>
 
                                                 </div>
@@ -140,7 +143,7 @@ function AmbulanceList() {
                             show={modalShow}
                             onHide={() => setModalShow(false)}
                         />
-
+{/* 
                         <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
                                         <ul>
                                             <li className="prev">
@@ -172,7 +175,7 @@ function AmbulanceList() {
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                     
 
                                 </div>
