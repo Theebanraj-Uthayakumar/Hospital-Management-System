@@ -16,7 +16,6 @@ const addCamping = asyncHandler(async (req, res) => {
         Time: req.body.Time,
         Venue: req.body.Venue,
         CNumber: req.body.CNumber,
-        Gender: req.body.Gender,
         Date: req.body.Date,
         Description: req.body.Description,
         // avatar: result?.secure_url,
