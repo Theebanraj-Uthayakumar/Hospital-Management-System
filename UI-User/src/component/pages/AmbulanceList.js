@@ -14,6 +14,10 @@ import Button from '@restart/ui/esm/Button';
 import Row from 'react-bootstrap/esm/Row';
 import Pagination from 'react-bootstrap/Pagination'
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+import Modal from 'react-bootstrap/Modal';
+import AmbulanceModal from "./AmbulanceModal/AmbulanceModal";
+
 const useStyles = makeStyles((theme) => ({
     link: {
         display: 'flex',
@@ -33,56 +37,28 @@ function handleClick(event) {
 function AmbulanceList() {
     const classes = useStyles();
     const [searchTerm, setSearchTerm] = useState("");
-    const [ambulance1, setAmbulance] = useState([]);
+    const [ambulance, setAmbulance] = useState([]);
+    const [modalShow, setModalShow] = React.useState(false);
 
-    
-    const ambulance = 
-    [
-        {
-            "_id": "6349a1d6283af13989d67f49",
-            "VNo": "PA-8970",
-            "VChassisno": "2098-8956-7845",
-            "DName": "Kasun Perera",
-            "DLicence": "200014578956",
-            "DContactno": "200014578956",
-            "Description": "Van tyed vehicle with all the argent facilities sdsdsd",
-            "CDate": "15/10/2022",
-            "CTime": "15/10/2022"
-        },
-        {
-            "_id": "6349a64a283af13989d67f54",
-            "VNo": "SA-9080",
-            "VChassisno": "789-789-456",
-            "DName": "Saman Perera",
-            "DLicence": "789456123",
-            "DContactno": "789456123",
-            "Description": "All in One. All with All All aasasd"
-        },
-        {
-            "_id": "6349bd6c2b40e1747543d036",
-            "VNo": "Chanul Gunathilake",
-            "VChassisno": "chanuldeeraka@gmail.com",
-            "DName": "$2b$10$V8dyNqnPnmSbuFBTeJEIye4f6/F2WYoKADHedhRZpsLRDm6JzCUaO",
-            "DLicence": "Student",
-            "DContactno": "Year 3 Semester 2",
-            "Description": "Year 3 Semester 2",
-            "CTime": "Tue May 12 2020 01:44:14 GMT+0530 (India Standard Time)",
-            "CDate": "Tue May 12 2020 01:44:14 GMT+0530 (India Standard Time)"
-        }
-    ];
+    const history = useHistory();
 
-    // const getRequest = () => {
-    //     axios
-    //         .get('http://localhost:4000/ambulance')
-    //         .then(response => {
-    //             setAmbulance(response.data);
+    const getAllAmbulanceData = (ID) =>{
+        setModalShow(true)
+        window.sessionStorage.setItem("AmbulanceID", ID);
+    }
 
-    //         });
-    // }
+    const getRequest = () => {
+        axios
+            .get('http://localhost:4000/api/v1/ambulance/')
+            .then(response => {
+                setAmbulance(response.data);
 
-    // useEffect(() => {
-    //     getRequest()
-    // }, [ambulance]);
+            });
+    }
+
+    useEffect(() => {
+        getRequest()
+    }, [ambulance]);
 
     return (
         <div>
@@ -117,7 +93,7 @@ function AmbulanceList() {
                                   </form>
                             </div>
                                 
-                            <div className="row justify-content-center"> 
+                            <div className="row"> 
                                
                                 {ambulance.filter((val) => {
                                         if (searchTerm == "") {
@@ -128,9 +104,9 @@ function AmbulanceList() {
                                     }).map((item) => (
                                         
 
-                                        <div className="col-3">
+                                        <div className="col-3 mt-5">
                                             <div className="ui link cards">
-                                            <div className="card">
+                                            <div className="card"  onClick={() => getAllAmbulanceData(item._id)}>
                                                 <div className="image m-5">
                                                 <img src="https://img.freepik.com/free-vector/emergency-ambulance-white-background_1308-101723.jpg?t=st=1662725835~exp=1662726435~hmac=a88d1ef18fb0f02d3b9f6b2ab6f910969b7fb9e728bccd9fa80271b5ac8f49af" />
                                                 </div>
@@ -160,6 +136,11 @@ function AmbulanceList() {
                                             </div>                   
                         ))}                                        
                         
+                        <AmbulanceModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
+
                         <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
                                         <ul>
                                             <li className="prev">

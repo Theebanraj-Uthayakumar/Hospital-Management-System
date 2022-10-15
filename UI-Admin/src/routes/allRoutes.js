@@ -19,6 +19,7 @@ import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
 import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors";
 import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
 import DoctorsReport from "pages/Doctor/DoctorsReport/DoctorsReport"
+import AmbulanceReport from "pages/Ambulance/AmbulanceReport/AmbulanceReport"
 
 //Operation
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
@@ -48,6 +49,7 @@ const userRoutes = [
   { path: "/getAllAmbulance", component: GetAllAmbulance },
   { path: "/addAmbulance", component: AddAmbulance },
   { path: "/updateAmbulance", component: UpdateAmbulance },
+  { path: "/ambulanceReport", component: AmbulanceReport },
 
   //profile
   { path: "/profile", component: UserProfile },

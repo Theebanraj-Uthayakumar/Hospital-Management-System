@@ -8,6 +8,7 @@ import Doctor from './component/pages/doctos';
 import Operation from './component/pages/Operation';
 import Home from "./component/pages/Home/Home";
 import AmbulanceList from "./component/pages/AmbulanceList";
+import AmbulanceModal from "./component/pages/AmbulanceModal/AmbulanceModal";
 
 import Pharmacy2 from "./component/Pharmacy/Pharmacy2";
 import Pharmacy1 from "./component/Pharmacy/Pharmacy1";
@@ -26,6 +27,7 @@ const Routing = () => {
       <Route path="/check1" component={Pharmacy1}/>
       <Route path="/Doctors" component={Doctor} />
       <Route path="/AmbulanceList" component={AmbulanceList} />
+      <Route path="/AmbulanceModal" component={AmbulanceModal} />
     </Switch>
   );
 };

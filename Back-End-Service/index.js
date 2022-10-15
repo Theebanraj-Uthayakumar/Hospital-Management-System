@@ -10,11 +10,8 @@ const cors = require("cors");
 //Import Routes
 const usermanagement = require("./routes/doctor.routes");
 const operationmanagement = require("./routes/operation.routes");
-<<<<<<< HEAD
 const ambulancemanagement = require("./routes/ambulance.routes");
-=======
 const authRoute = require("./controller/auth.controller");
->>>>>>> 52ec6fe53f49427c8d4b318ff799f2664cf265f7
 
 const app = express();
 
@@ -27,11 +24,8 @@ connectDB();
 //Route Middlewares
 app.use("/api/v1/doctor", usermanagement);
 app.use("/api/v1/operation", operationmanagement);
-<<<<<<< HEAD
 app.use("/api/v1/ambulance", ambulancemanagement);
-=======
 app.use("/api/v1/auth", authRoute);
->>>>>>> 52ec6fe53f49427c8d4b318ff799f2664cf265f7
 
 
 

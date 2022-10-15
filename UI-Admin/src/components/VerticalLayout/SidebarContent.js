@@ -127,15 +127,12 @@ const SidebarContent = props => {
                     </li>
                   </ul>
                 </li>
-              </ul>
-
-            
+              </ul>           
             </li>
 
             <li>
               <Link to="/#" className="has-arrow waves-effect">
                 <i className="ti-more"></i>
-<<<<<<< HEAD
                 <span>Ambulance</span>
               </Link>
               <ul className="sub-menu" aria-expanded="true">
@@ -149,7 +146,15 @@ const SidebarContent = props => {
                   <ul className="sub-menu" aria-expanded="true">
                     <li>
                       <Link to="/getAllAmbulance">Ambulance List</Link>
-=======
+                    </li>
+                    <li>
+                      <Link to="/ambulanceReport">Ambulance Report</Link>
+                    </li>
+                  </ul>
+              </li>
+              </ul>
+
+              <Link>
                 <span>Operation</span>
               </Link>
               <ul className="sub-menu" aria-expanded="true">
@@ -163,19 +168,11 @@ const SidebarContent = props => {
                   <ul className="sub-menu" aria-expanded="true">
                     <li>
                       <Link to="/getAllOperation">Operation List</Link>
->>>>>>> 52ec6fe53f49427c8d4b318ff799f2664cf265f7
                     </li>
                   </ul>
                 </li>
               </ul>
-<<<<<<< HEAD
             </li>
-
-=======
-
-            
-            </li>    
->>>>>>> 52ec6fe53f49427c8d4b318ff799f2664cf265f7
           </ul>
         </div>
       </SimpleBar>
