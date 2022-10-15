@@ -9,6 +9,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import GrainIcon from "@material-ui/icons/Grain";
 import axios from "axios";
 import SearchIcon from "@material-ui/icons/Search";
+// import Img from './';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -131,7 +132,7 @@ function Operation() {
                           </div>
                         </aside>
                       </div>
-                      <div className="col-xl-9 col-lg-8">
+                      <div className="row">
                         {operation
                           .filter((val) => {
                             if (searchTerm === "") {
@@ -145,7 +146,7 @@ function Operation() {
                             }
                           })
                           .map((item) => (
-                            <div className="pagination-wrap">
+                            <div className="col-3 mt-5">
                               {/* <div className="pagination-wrap_column1">
                                 <img
                                   // src={DoctorImg}
@@ -158,78 +159,27 @@ function Operation() {
                               </div> */}
 
                               {/* //Testing */}
-
                               <div className="ui link cards">
                                 <div className="card">
                                   <div className="image">
-                                    <img src="/images/avatar2/large/matthew.png" />
+                                    <img src="/images/molly.png" />
                                   </div>
                                   <div className="content">
-                                    <div className="header">
-                                      Matt Giampietro
-                                    </div>
+                                    <div className="header">{item.DName}</div>
                                     <div className="meta">
-                                      <a>Friends</a>
+                                      <span className="date">{item.OName}</span>
                                     </div>
                                     <div className="description">
-                                      Matthew is an interior designer living in
-                                      New York.
+                                      {item.Description}
                                     </div>
                                   </div>
                                   <div className="extra content">
                                     <span className="right floated">
-                                      Joined in 2013
+                                      {item.Date}
                                     </span>
                                     <span>
                                       <i className="user icon" />
-                                      75 Friends
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="card">
-                                  <div className="image">
-                                    <img src="/images/avatar2/large/molly.png" />
-                                  </div>
-                                  <div className="content">
-                                    <div className="header">Molly</div>
-                                    <div className="meta">
-                                      <span className="date">Coworker</span>
-                                    </div>
-                                    <div className="description">
-                                      Molly is a personal assistant living in
-                                      Paris.
-                                    </div>
-                                  </div>
-                                  <div className="extra content">
-                                    <span className="right floated">
-                                      Joined in 2011
-                                    </span>
-                                    <span>
-                                      <i className="user icon" />
-                                      35 Friends
-                                    </span>
-                                  </div>
-                                </div>
-                                <div className="card">
-                                  <div className="image">
-                                    <img src="/images/avatar2/large/elyse.png" />
-                                  </div>
-                                  <div className="content">
-                                    <div className="header">Elyse</div>
-                                    <div className="meta">
-                                      <a>Coworker</a>
-                                    </div>
-                                    <div className="description">
-                                      Elyse is a copywriter working in New York.
-                                    </div>
-                                  </div>
-                                  <div className="extra content">
-                                    <span className="right floated">
-                                      Joined in 2014
-                                    </span>
-                                    <span>
-                                      <i className="user icon" />
-                                      151 Friends
+                                      {item.Time}
                                     </span>
                                   </div>
                                 </div>

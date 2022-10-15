@@ -19,7 +19,7 @@ export default function header() {
                                     <nav className="menu-nav show">
                                         <div className="logo">
                                             <a href="/#">
-                                                <img src="images/LOGO final.png" alt="Logo" width="100px" />
+                                                <img src="images/logo-sm.png" alt="Logo" width="100px" />
                                             </a>
                                         </div>
                                         <div className="navbar-wrap main-menu d-none d-lg-flex">
