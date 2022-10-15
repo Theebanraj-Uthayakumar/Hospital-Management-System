@@ -101,7 +101,7 @@ const AddDoctors = () => {
       setSpecialization(e)
       setErroSpecialization("")
     } else if (e === "") {
-      setErroSpecialization("Please Enter a Speculation")
+      setErroSpecialization("Please Enter a Specialization")
     } else {
       setErroSpecialization("Please Enter a valid Input")
     }

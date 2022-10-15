@@ -17,12 +17,14 @@ import Dashboard from "../pages/Dashboard/index"
 import GetAllDoctors from "../pages/Doctor/GetAllDoctors/GetAllDoctors";
 import AddDoctors from "../pages/Doctor/AddDoctors/AddDoctors";
 import UpdateDoctors from "../pages/Doctor/UpdateDoctors/UpdateDoctors"
-import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
 import DoctorsReport from "pages/Doctor/DoctorsReport/DoctorsReport"
 
 //Operation
 import AddOperation from "pages/Operation/AddOperation/AddOperation";
 import UpdateOperation from "pages/Operation/UpdateOperation/UpdateOperation";
+import OperationReport from "pages/Operation/OperationReport/OperationReport";
+import GetAllOperation from "pages/Operation/GetAllOperation/GetAllOperation";
+
 import AddCamping from "pages/Camping/AddCamping/AddCamping"
 import GetAllCamping from "pages/Camping/GetAllCamping/GetAllCamping"
 import UpdateCamping from "pages/Camping/UpdateCamping/UpdateCamping"
@@ -42,6 +44,7 @@ const userRoutes = [
   { path: "/getAllOperation", component: GetAllOperation },
   { path: "/addOperation", component: AddOperation },
   { path: "/updateOperation", component: UpdateOperation },
+  { path: "/operationReport", component: OperationReport },
 
   //Camping
   { path: "/getAllCamping", component: GetAllCamping },

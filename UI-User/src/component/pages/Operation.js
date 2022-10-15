@@ -9,6 +9,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import GrainIcon from "@material-ui/icons/Grain";
 import axios from "axios";
 import SearchIcon from "@material-ui/icons/Search";
+// import Img from './';
 
 const useStyles = makeStyles((theme) => ({
   link: {
@@ -20,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
     height: 20,
   },
 }));
-
 
 function Operation() {
   const classes = useStyles();
@@ -41,103 +41,167 @@ function Operation() {
       <body>
         <center>
           <div className="heading">
-            <h1>OPERATION HISTORY DETAILS</h1>
+            <h1>
+              <marquee>OPERATION HISTORY DETAILS</marquee>
+            </h1>
           </div>
           <div>
-      <Container>
-        <main>
-          {/* shop-area */}
-          <div className="shop-area gray-bg pt-10 pb-100">
-            <div className="custom-container-two">
-              <Breadcrumbs aria-label="breadcrumb" className="Breadcrumbs">
-                <Link color="inherit" href="./" className={classes.link}>
-                  <HomeIcon className={classes.icon} />
-                  Home
-                </Link>
-                <Typography color="textPrimary" className={classes.link}>
-                  <GrainIcon className={classes.icon} />
-                  Operation Details
-                </Typography>
-              </Breadcrumbs>
-              <div className="row justify-content-center">
-                <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8 order-2 order-lg-0">
-                  <aside className="shop-sidebar">
-                    <div className="widget shop-widget mb-30">
-                      <div className="shop-widget-title">
-                        <h6 className="title">Quick Search</h6>
-                      </div>
-                      <div className="input-group">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="Type to Search here"
-                          onChange={(e) => {
-                            setSearchTerm(e.target.value);
-                          }}
-                        />
-                        <div className="input-group-append">
-                          <button className="btn btn-secondary" type="button">
-                            <SearchIcon />
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="widget" style={{ paddingBlock: "20px" }}>
-                      <div className="shop-widget-banner special-offer-banner">
-                        {/* <a href="/#">
+            <Container>
+              <main>
+                {/* shop-area */}
+                <div className="shop-area gray-bg pt-10 pb-100">
+                  <div className="custom-container-two">
+                    <Breadcrumbs
+                      aria-label="breadcrumb"
+                      className="Breadcrumbs"
+                    >
+                      <Link color="inherit" href="./" className={classes.link}>
+                        <HomeIcon className={classes.icon} />
+                        Home
+                      </Link>
+                      <Typography color="textPrimary" className={classes.link}>
+                        <GrainIcon className={classes.icon} />
+                        Operation Details
+                      </Typography>
+                    </Breadcrumbs>
+                    <div className="row justify-content-center">
+                      <div className="col-xl-3 col-lg-4 col-md-6 col-sm-8 order-2 order-lg-0">
+                        <aside className="shop-sidebar">
+                          <div className="widget shop-widget mb-30">
+                            <div className="shop-widget-title">
+                              <h6 className="title">Quick Search</h6>
+                            </div>
+                            <div className="input-group">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Type to Search here"
+                                onChange={(e) => {
+                                  setSearchTerm(e.target.value);
+                                }}
+                              />
+                              <div className="input-group-append">
+                                <button
+                                  className="btn btn-secondary"
+                                  type="button"
+                                >
+                                  <SearchIcon />
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            className="widget"
+                            style={{ paddingBlock: "20px" }}
+                          >
+                            <div className="shop-widget-banner special-offer-banner">
+                              {/* <a href="/#">
                           <img src="images/News01.png" alt="ImageImg" />
                         </a> */}
-                      </div>
-                    </div>
-                    <div className="widget" style={{ paddingBlock: "20px" }}>
-                      <div className="shop-widget-banner special-offer-banner">
-                        {/* <a href="/#">
+                            </div>
+                          </div>
+                          <div
+                            className="widget"
+                            style={{ paddingBlock: "20px" }}
+                          >
+                            <div className="shop-widget-banner special-offer-banner">
+                              {/* <a href="/#">
                           <img src="images/News02.png" alt="ImageImg" />
                         </a> */}
-                      </div>
-                    </div>
-                    <div className="widget" style={{ paddingBlock: "20px" }}>
-                      <div className="shop-widget-banner special-offer-banner">
-                        {/* <a href="/#">
+                            </div>
+                          </div>
+                          <div
+                            className="widget"
+                            style={{ paddingBlock: "20px" }}
+                          >
+                            <div className="shop-widget-banner special-offer-banner">
+                              {/* <a href="/#">
                           <img src="images/News03.png" alt="ImageImg" />
                         </a> */}
-                      </div>
-                    </div>
-                    <div className="widget" style={{ paddingBlock: "20px" }}>
-                      <div className="shop-widget-banner special-offer-banner">
-                        {/* <a href="/#">
+                            </div>
+                          </div>
+                          <div
+                            className="widget"
+                            style={{ paddingBlock: "20px" }}
+                          >
+                            <div className="shop-widget-banner special-offer-banner">
+                              {/* <a href="/#">
                           <img src="images/News04.png" alt="ImageImg" />
                         </a> */}
+                            </div>
+                          </div>
+                        </aside>
                       </div>
-                    </div>
-                  </aside>
-                </div>
-                <div className="col-xl-9 col-lg-8">
-                  {operation
-                    .filter((val) => {
-                      if (searchTerm === "") {
-                        return val;
-                      } else if (
-                        val.DName.toLocaleLowerCase().includes(
-                          searchTerm.toLocaleLowerCase()
-                        )
-                      ) {
-                        return val;
-                      }
-                    })
-                    .map((item) => (
-                      <div className="pagination-wrap">
-                        <div className="pagination-wrap_column1">
-                          <img
-                            // src={DoctorImg}
-                            src={item.selectedFile}
-                            alt="Profile01"
-                            className="pagination-wrap_image"
-                            height="350px"
-                            width="200px"
-                          />
-                        </div>
-                        <div className="pagination-wrap_column2">
+                      <div className="row">
+                        {operation
+                          .filter((val) => {
+                            if (searchTerm === "") {
+                              return val;
+                            } else if (
+                              val.DName.toLocaleLowerCase().includes(
+                                searchTerm.toLocaleLowerCase()
+                              )
+                            ) {
+                              return val;
+                            }
+                          })
+                          .map((item) => (
+                            <div className="col-3 mt-5">
+                              {/* <div className="pagination-wrap_column1">
+                                <img
+                                  // src={DoctorImg}
+                                  src={item.selectedFile}
+                                  alt="Profile01"
+                                  className="pagination-wrap_image"
+                                  height="350px"
+                                  width="200px"
+                                />
+                              </div> */}
+
+                              {/* //Testing */}
+                              <div className="ui link cards">
+                                <div className="card">
+                                  <div className="image">
+                                    <img src="/images/molly.png" />
+                                  </div>
+                                  <div className="content">
+                                    <div className="header">{item.DName}</div>
+                                    <div className="meta">
+                                      <span className="date">{item.OName}</span>
+                                    </div>
+                                    <div className="description">
+                                      {item.Description}
+                                    </div>
+                                  </div>
+                                  <div className="extra content">
+                                    <span className="right floated">
+                                      {item.Date.substring(10, 0)}
+                                    </span>
+                                    <span className="left floated">
+                                      <i className="user icon" />
+                                      {item.Time}
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* <div className="ui cards">
+                                <div className="card">
+                                  <div className="content">
+                                    <div className="header">Doctor name :- {item.DName}</div>
+                                    <div className="meta"> {item.OName}</div>
+                                    <div className="meta"> {item.Date}</div>
+                                    <div className="meta"> {item.Time}</div>
+                                    <div className="description">
+                                      Description{item.Description}
+                                    </div>
+                                  </div>
+                                </div>
+                                
+
+                              </div> */}
+
+                              {/* <div className="pagination-wrap_column2">
                           <h2>{item.DName}</h2>
                           <h5>{item.OName}</h5>
                           <table>
@@ -156,31 +220,12 @@ function Operation() {
                               <th>Description </th>
                               <td colspan="3">{item.Description}</td>
                             </tr>
-                            {/* <tr>
-                              <th>Current Position</th>
-                              <td>{item.CPosistion}</td>
-                              <th>Working Hospital</th>
-                              <td>{item.WHospital}</td>
-                            </tr>
-                            <tr>
-                              <th>Working History</th>
-                              <td colspan="3">{item.WHistory}</td>
-                            </tr> */}
-                            {/* <tr>
-                              <th colspan="2">
-                                <p>{item.createdAt}</p>
-                              </th>
-                              <td colspan="2">
-                                <p className="Like">
-                                  <ThumbUpAltIcon /> Like
-                                </p>
-                              </td>
-                            </tr> */}
+                            
                           </table>
-                        </div>
-                      </div>
-                    ))}
-                  {/* <div className="pagination-wrap">
+                        </div> */}
+                            </div>
+                          ))}
+                        {/* <div className="pagination-wrap">
                     <ul>
                       <li className="prev">
                         <a href="/#">
@@ -212,21 +257,19 @@ function Operation() {
                       </li>
                     </ul>
                   </div> */}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+                {/* shop-area-end */}
+              </main>
+            </Container>
           </div>
-          {/* shop-area-end */}
-        </main>
-      </Container>
-    </div>
-          
+
           <div className="backround">
             <div className="searchpic">
-              <div className="searchbar">
-                
-              </div>
-              
+              <div className="searchbar"></div>
+
               {/* <div className="pic">
                 <img src="./images/sp1.PNG" />
               </div> */}
