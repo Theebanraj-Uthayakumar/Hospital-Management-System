@@ -70,7 +70,7 @@ const UpdateOperation = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Add Operation | HMS -  Admin Dashboard</title>
+          <title>Add Operation | MEDWIN Hospital -  Admin Dashboard</title>
         </MetaTags>
         <Container fluid={true}>
           <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Add New Doctor" />

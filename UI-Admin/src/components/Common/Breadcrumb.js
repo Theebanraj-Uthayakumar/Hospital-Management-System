@@ -30,7 +30,7 @@ const Breadcrumb = props => {
         </div>
       </Col>
       <Col sm={6}>
-        <div className="float-end d-none d-md-block">
+        {/* <div className="float-end d-none d-md-block">
           <Dropdown
             isOpen={setting_Menu}
             toggle={() => {
@@ -48,7 +48,7 @@ const Breadcrumb = props => {
               <DropdownItem tag="a" href="#">Separated link</DropdownItem>
             </DropdownMenu>
           </Dropdown>
-        </div>
+        </div> */}
       </Col>
     </Row>
   )

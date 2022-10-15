@@ -72,7 +72,7 @@ router.post("/login", async (req, res) => {
     process.env.TOKEN_SECRET
   );
   //   res.header("auth-token", token).send(token);
-  res.header("auth-token", token).send(res.json({ token: token, user: {name: user.name, email: user.email} }));
+  res.header("auth-token", token).send(res.json({ token: token, user: {name: user.name, email: user.email}, status_code : 200 }));
 });
 
 //Forget Password
