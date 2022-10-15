@@ -34,8 +34,9 @@ const UserProfile = props => {
   useEffect(() => {
     if (localStorage.getItem("authUser")) {
       const obj = JSON.parse(localStorage.getItem("authUser"))
-        setname(obj.username)
-        setemail(obj.email)
+        console.log(obj);
+        setname(obj.user.name);
+        setemail(obj.user.email);
         setidx(obj.uid)
       setTimeout(() => {
         props.resetProfileFlag();
@@ -76,11 +77,11 @@ const UserProfile = props => {
                         className="avatar-md rounded-circle img-thumbnail"
                       />
                     </div>
-                    <div className="align-self-center flex-1">
+                    <div className="align-self-center flex-1" style={{paddingLeft: 20}}>
                       <div className="text-muted">
                         <h5>{name}</h5>
                         <p className="mb-1">{email}</p>
-                        <p className="mb-0">Id no: #{idx}</p>
+                        {/* <p className="mb-0">Id no: #{idx}</p> */}
                       </div>
                     </div>
                   </div>
