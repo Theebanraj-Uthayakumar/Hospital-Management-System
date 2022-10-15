@@ -175,9 +175,9 @@ function Operation() {
                                   </div>
                                   <div className="extra content">
                                     <span className="right floated">
-                                      {item.Date}
+                                      {item.Date.substring(10, 0)}
                                     </span>
-                                    <span>
+                                    <span className="left floated">
                                       <i className="user icon" />
                                       {item.Time}
                                     </span>
