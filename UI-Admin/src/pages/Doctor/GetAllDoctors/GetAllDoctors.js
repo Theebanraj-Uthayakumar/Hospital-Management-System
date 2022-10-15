@@ -65,33 +65,32 @@ const GetAllDoctors = () => {
             <Col>
               <Card>
                 <CardBody>
-
-                        <Row className="align-items-center">
-      <Col sm={6}>
-      <CardTitle className="h4">Get All Doctors </CardTitle>
-                  <p className="card-title-desc">
-                    This is an experimental awesome solution for responsive
-                    tables with complex data.
-                  </p>
-      </Col>
-      <Col sm={6}>
-        <div className="float-end d-none d-md-block">
-        <form className="app-search d-none d-lg-block">
-              <div className="position-relative">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder={"Search"}
-                  onChange={(e) => {
-                    setSearchTerm(e.target.value);
-                  }}
-                />
-                <span className="fa fa-search"></span>
-              </div>
-            </form>
-        </div>
-      </Col>
-      </Row>
+                  <Row className="align-items-center">
+                    <Col sm={6}>
+                      <CardTitle className="h4">Get All Doctors </CardTitle>
+                      <p className="card-title-desc">
+                        This is an experimental awesome solution for responsive
+                        tables with complex data.
+                      </p>
+                    </Col>
+                    <Col sm={6}>
+                      <div className="float-end d-none d-md-block">
+                        <form className="app-search d-none d-lg-block">
+                          <div className="position-relative">
+                            <input
+                              type="text"
+                              className="form-control"
+                              placeholder={"Search"}
+                              onChange={(e) => {
+                                setSearchTerm(e.target.value);
+                              }}
+                            />
+                            <span className="fa fa-search"></span>
+                          </div>
+                        </form>
+                      </div>
+                    </Col>
+                  </Row>
 
                   <div className="table-rep-plugin">
                     <div
@@ -119,16 +118,15 @@ const GetAllDoctors = () => {
                         </Thead>
                         <Tbody>
                           {getDoctors?.filter((val) => {
-                    if (searchTerm == "") {
-                      return val;
-                    } else if (
-                      val.DName.toLocaleLowerCase().includes(
-                        searchTerm.toLocaleLowerCase()
-                      )
-                    ) {
-                      return val;
-                    }
-                  }).map(item => (
+                            if (searchTerm == "") {
+                              return val;
+                            } else if (
+                              val.DName.toLocaleLowerCase().includes(
+                              searchTerm.toLocaleLowerCase()
+                            )) {
+                              return val;
+                            }
+                            }).map(item => (
                             <Tr>
                               <Th>{item.DName}</Th>
                               <Td>{item.Speci}</Td>

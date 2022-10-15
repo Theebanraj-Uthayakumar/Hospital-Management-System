@@ -122,6 +122,9 @@ const SidebarContent = props => {
                     <li>
                       <Link to="/getAllDoctors">Doctors List</Link>
                     </li>
+                    <li>
+                      <Link to="/doctorsReport">Doctors Report</Link>
+                    </li>
                   </ul>
                 </li>
               </ul>
