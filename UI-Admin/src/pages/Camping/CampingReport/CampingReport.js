@@ -60,7 +60,7 @@ const CampingReport = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Add New Camping | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Get all Camping details as Report | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
         </MetaTags>
         <Container fluid={true} style={{marginTop:"20px"}}>
 
@@ -71,9 +71,9 @@ const CampingReport = () => {
 
                 <Row className="align-items-center">
                     <Col sm={6}>
-                      <CardTitle className="h4">Get Camping Report</CardTitle>
+                      <CardTitle className="h4">Camping Report</CardTitle>
                       <p className="card-title-desc">
-                        Commodo nisi exercitation nisi Lorem duis officia. 
+                        Get all camping details as report
                       </p>
                     </Col>
                     <Col sm={6}>
