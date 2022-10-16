@@ -16,7 +16,7 @@ import Pagination from 'react-bootstrap/Pagination'
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
-import CampingModel from "./CampingModel";
+import AmbulanceModal from "./AmbulanceModal/AmbulanceModal";
 
 const useStyles = makeStyles((theme) => ({
     link: {
@@ -34,31 +34,35 @@ function handleClick(event) {
     console.info('You clicked a breadcrumb.');
 }
 
-function Camping() {
+function AmbulanceList() {
     const classes = useStyles();
     const [searchTerm, setSearchTerm] = useState("");
-    const [camping, setCamping] = useState([]);
+    const [ambulance, setAmbulance] = useState([]);
     const [modalShow, setModalShow] = React.useState(false);
 
     const history = useHistory();
 
-    const getAllCampingData = (ID) =>{
+    const getAllAmbulanceData = (VNo, ChassisNo, DLicence, Description) =>{
         setModalShow(true)
-        window.sessionStorage.setItem("CampingID", ID);
+
+        window.sessionStorage.setItem("VNo", VNo);
+        window.sessionStorage.setItem("ChassisNo", ChassisNo);
+        window.sessionStorage.setItem("DLicence", DLicence);
+        window.sessionStorage.setItem("Description", Description);
     }
 
     const getRequest = () => {
         axios
-            .get('http://localhost:4000/api/v1/camping/')
+            .get('http://localhost:4000/api/v1/ambulance/')
             .then(response => {
-                setCamping(response.data);
+                setAmbulance(response.data);
 
             });
     }
 
     useEffect(() => {
         getRequest()
-    }, [camping]);
+    }, [ambulance]);
 
     return (
         <div>
@@ -74,7 +78,7 @@ function Camping() {
                                 </Link>
                                 <Typography color="textPrimary" className={classes.link}>
                                     <GrainIcon className={classes.icon} />
-                                    Camping Details
+                                    Ambulance Details
                                 </Typography>
                             </Breadcrumbs>
                            
@@ -95,10 +99,10 @@ function Camping() {
                                 
                             <div className="row"> 
                                
-                                {camping.filter((val) => {
+                                {ambulance.filter((val) => {
                                         if (searchTerm == "") {
                                             return val;
-                                        } else if (val.HName.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
+                                        } else if (val.VNo.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase())) {
                                             return val;
                                         }
                                     }).map((item) => (
@@ -106,43 +110,44 @@ function Camping() {
 
                                         <div className="col-3 mt-5">
                                             <div className="ui link cards">
-                                            <div className="card"  onClick={() => getAllCampingData(item._id)}>
-                                                <div className="image">
-                                                <img src="https://ichef.bbci.co.uk/news/976/mcs/media/images/78181000/jpg/_78181308_dsc_0151.jpg" />
+                                            <div className="card"  onClick={() => getAllAmbulanceData(item.VNo,item.VChassisno,item.DLicence,item.Description)}>
+                                                <div className="image m-5">
+                                                <img src="https://img.freepik.com/free-vector/emergency-ambulance-white-background_1308-101723.jpg?t=st=1662725835~exp=1662726435~hmac=a88d1ef18fb0f02d3b9f6b2ab6f910969b7fb9e728bccd9fa80271b5ac8f49af" />
                                                 </div>
                                                 <div className="content">
-                                                <div className="header">Camping Name :{item.HName}</div>
+                                                <div className="header">Vehicle No :  {item.VNo}</div>
+
 
                                                 <div className="meta font-weight-bold">
-                                                    <h4>Time</h4>
+                                                    <br></br>
+                                                    <h5>Driver Name</h5>
                                                 </div>
                                                 <div className="description">
-                                                    {item.Time}
+                                                    {item.DName}
                                                 </div>
 
                                                 <div className="meta font-weight-bold">
-                                                    <h4>Camping Number</h4>
+                                                    <br></br>
+                                                    <h5>Driver Contact No</h5>
                                                 </div>
                                                 <div className="description">
-                                                    {item.CNumber}
-                                                </div>
-                                                
-                                                <div className="meta font-weight-bold">
-                                                    <h4>Venue</h4>
-                                                </div>
-                                                <div className="description">
-                                                    {item.Venue}
+                                                    {item.DContactno}
                                                 </div>
 
                                                 </div>
                                                 <div className="extra content">
-                                                <span className="right floated">Date {item.Date.substring(0, 10)}</span>
+                                                <span className="right floated">Registered on {item.CDate}</span>
                                                 </div>
                                             </div>
                                             </div>   
                                             </div>                   
                         ))}                                        
-
+                        
+                        <AmbulanceModal
+                            show={modalShow}
+                            onHide={() => setModalShow(false)}
+                        />
+{/* 
                         <div className="pagination-wrap" style={{width:'90%', margin:'auto'}}>
                                         <ul>
                                             <li className="prev">
@@ -174,7 +179,7 @@ function Camping() {
                                                 </a>
                                             </li>
                                         </ul>
-                                    </div>
+                                    </div> */}
                                     
 
                                 </div>
@@ -187,4 +192,4 @@ function Camping() {
     )
 }
 
-export default Camping
+export default AmbulanceList

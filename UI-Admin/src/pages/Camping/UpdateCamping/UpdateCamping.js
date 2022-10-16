@@ -17,12 +17,17 @@ import { useHistory } from "react-router-dom";
 
 const UpdateCamping = () => {
 
-    const [hname, setName] = useState("");
+  const [hname, setName] = useState("");
   const [time, setTime] = useState("");
   const [venue, setVenue] = useState("");
   const [cnumber, setCNumber] = useState("");
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
+
+  const [error_hname, setErrorhname] = useState("")
+  const [error_venue, setErrorvenue] = useState("")
+  const [error_cnumber, setErrorcnumber] = useState("")
+  const [error_description, setErrordescription] = useState("")
 
   const CampingID = window.sessionStorage.getItem("CampingID");
 
@@ -43,6 +48,13 @@ const UpdateCamping = () => {
   const history = useHistory();
 
   const UpdateCamping =()=>{
+    if (
+      error_hname === "" &&
+      error_venue === "" &&
+      error_cnumber === "" &&
+      error_description === ""
+    ) {
+
       const requestOptions = {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
@@ -59,12 +71,67 @@ const UpdateCamping = () => {
       fetch(`http://localhost:4000/api/v1/camping/${CampingID}`, requestOptions)
       .then(async response => {
         alert("Your data has been successfully updated...")
-        history.push("/getAllOperations");
+        history.push("/getAllCamping");
       }).catch((err)=>{
         console.log(err);
         alert("Sorry, Something Error...")
       })
+  }else {
+      swal("Warning!", "Please Enter a valid Input...!", "warning")
+    }
   }
+
+  const textHNameInput = e => {
+    var letters = /^[A-Za-z ]+$/
+    console.log("error_hname : ", error_hname)
+    if (e.match(letters)) {
+      setName(e)
+      setErrorhname("")
+    } else if (e === "") {
+      setErrorhname("Please Enter a Name")
+    } else {
+      setErrorhname("Please Enter a valid Input")
+    }
+  }
+  
+  const textVenueInput = e => {
+    var letters = /^[A-Za-z ]+$/
+    if (e.match(letters)) {
+        setVenue(e)
+      setErrorvenue("")
+    } else if (e === "") {
+      setErrorvenue("Please Enter a Venue")
+    } else {
+      setErrorvenue("Please Enter a valid Input")
+    }
+  }
+  
+  const textCNumberInput = e => {
+    var letters = /^(C)[0-9]+$/
+    if (e.match(letters)) {
+        setCNumber(e)
+      setErrorcnumber("")
+    } else if (e === "") {
+      setErrorcnumber("Please Enter a CNumber")
+    } else {
+      setErrorcnumber("Please Enter a valid Input")
+    }
+  }
+  
+  
+  const textDescriptionlInput = e => {
+    var letters = /^[A-Za-z ]+$/
+    console.log("error_description : ", error_description)
+    if (e.match(letters)) {
+      setDescription(e)
+      setErrordescription("")
+    } else if (e === "") {
+      setErrordescription("Please Enter a Description")
+    } else {
+      setErrordescription("Please Enter a valid Input")
+    }
+  }
+  
 
   return (
     <React.Fragment>
@@ -93,9 +160,14 @@ const UpdateCamping = () => {
                         type="text"
                         placeholder="camping Name"
                         defaultValue={camping.HName}
-                        onChange={(e) => setName(e.target.value)}
-                      />
-                    </div>
+                        onChange={e => textHNameInput(e.target.value)}
+                        />
+                        {error_hname ? (
+                          <span style={{ color: "red", fontSize: 12 }}>
+                            {error_hname}
+                          </span>
+                        ) : null}
+                      </div>
                   </Row>
 
                   <Row className="mb-3">
@@ -108,7 +180,7 @@ const UpdateCamping = () => {
                     <div className="col-md-10">
                       <input
                         className="form-control"
-                        type="text"
+                        type="time"
                         placeholder="Time"
                         defaultValue={camping.Time}
                         onChange={(e) => setTime(e.target.value)}
@@ -129,8 +201,13 @@ const UpdateCamping = () => {
                         type="text"
                         placeholder="Venue"
                         defaultValue={camping.Venue}
-                        onChange={(e) => setVenue(e.target.value)}
+                        onChange={e => textVenueInput(e.target.value)}
                       />
+                      {error_venue ? (
+                        <span style={{ color: "red", fontSize: 12 }}>
+                          {error_venue}
+                        </span>
+                      ) : null}
                     </div>
                   </Row>
 
@@ -147,8 +224,13 @@ const UpdateCamping = () => {
                         type="text"
                         placeholder="Camping Number"
                         defaultValue={camping.CNumber}
-                        onChange={(e) => setCNumber(e.target.value)}
+                        onChange={e => textCNumberInput(e.target.value)}
                       />
+                      {error_cnumber ? (
+                        <span style={{ color: "red", fontSize: 12 }}>
+                          {error_cnumber}
+                        </span>
+                      ) : null}
                     </div>
                   </Row>
 
@@ -162,7 +244,7 @@ const UpdateCamping = () => {
                     <div className="col-md-10">
                       <input
                         className="form-control"
-                        type="text"
+                        type="date"
                         placeholder="Date"
                         defaultValue={camping.Date}
                         onChange={(e) => setDate(e.target.value)}
@@ -183,8 +265,13 @@ const UpdateCamping = () => {
                         type="text"
                         placeholder="Description"
                         defaultValue={camping.Description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={e => textDescriptionlInput(e.target.value)}
                       />
+                      {error_description ? (
+                        <span style={{ color: "red", fontSize: 12 }}>
+                          {error_description}
+                        </span>
+                      ) : null}
                     </div>
                   </Row>
                   
