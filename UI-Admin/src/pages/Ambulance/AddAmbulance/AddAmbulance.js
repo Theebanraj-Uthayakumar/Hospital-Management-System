@@ -298,7 +298,7 @@ const AddAmbulance = () => {
                         type="text"
                         //value={Description}
                         onChange={(e) => textDescriptionInput(e.target.value)}
-                        placeholder="Maximum Word Count 200"
+                        placeholder="Enter Description"
                       />
                       {errors_Description ? (
                         <span style={{ color: "red", fontSize: 12 }}>

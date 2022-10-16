@@ -96,6 +96,9 @@ const DoctorsReport = () => {
                         </div>
                       </Col>
                     </Row>
+                    <center>
+                      <h3>MEDWIN Doctor's Details</h3>
+                    </center>
 
                     <div className="table-rep-plugin">
                       <div
