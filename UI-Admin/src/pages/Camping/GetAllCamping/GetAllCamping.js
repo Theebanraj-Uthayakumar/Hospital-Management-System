@@ -54,7 +54,7 @@ const GetAllCamping = () => {
                 <CardBody>
                   <Row className="align-items-center">
                     <Col sm={6}>
-                      <CardTitle className="h4">Get All Camping </CardTitle>
+                      <CardTitle className="h4">Get All Camping list</CardTitle>
                       <p className="card-title-desc">
                       </p>
                     </Col>

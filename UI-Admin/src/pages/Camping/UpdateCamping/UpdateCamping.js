@@ -137,10 +137,10 @@ const UpdateCamping = () => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Add New camping | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Update camping Details| Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
         </MetaTags>
         <Container fluid={true}>
-          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Add New camping" />
+          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Update camping Details" />
 
           <Row>
             <Col>
