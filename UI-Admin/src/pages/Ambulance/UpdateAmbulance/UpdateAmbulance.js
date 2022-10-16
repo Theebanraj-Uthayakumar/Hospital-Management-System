@@ -1,112 +1,93 @@
 import React, { useState, useEffect } from "react"
-import MetaTags from 'react-meta-tags';
+import MetaTags from "react-meta-tags"
 
-import {
-  Card,
-  CardBody,
-  Col,
-  Row,
-  Container,
-} from "reactstrap"
+import { Card, CardBody, Col, Row, Container } from "reactstrap"
 
 import { Button } from "reactstrap"
 
 //Import Breadcrumb
 import Breadcrumbs from "../../../components/Common/Breadcrumb"
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"
 
 const UpdateAmbulance = () => {
+  const [VNo, setVNo] = useState("")
+  const [VChassisno, setVChassisno] = useState("")
+  const [DName, setDName] = useState("")
+  const [DLicence, setDLicence] = useState("")
+  const [DContactno, setDContactno] = useState("")
+  const [Description, setDescription] = useState("")
 
-  const [VNo, setVNo] = useState("");
-  const [VChassisno, setVChassisno] = useState("");
-  const [DName, setDName] = useState("");
-  const [DLicence, setDLicence] = useState("");
-  const [DContactno, setDContactno] = useState("");
-  const [Description, setDescription] = useState("");
+  let [errors_VNo, seterrors_VNo] = useState("")
+  let [errors_VChassisno, seterrors_VChassisno] = useState("")
+  let [errors_DName, seterrors_DName] = useState("")
+  let [errors_DLicence, seterrors_DLicence] = useState("")
+  let [errors_DContactno, seterrors_DContactno] = useState("")
+  let [errors_Description, seterrors_Description] = useState("")
 
-  let [errors_VNo, seterrors_VNo] = useState("");
-  let [errors_VChassisno, seterrors_VChassisno] = useState("");
-  let [errors_DName, seterrors_DName] = useState("");
-  let [errors_DLicence, seterrors_DLicence] = useState("");
-  let [errors_DContactno, seterrors_DContactno] = useState("");
-  let [errors_Description, seterrors_Description] = useState("");
+  const AmbulanceID = window.sessionStorage.getItem("AmbulanceID")
 
-  const AmbulanceID = window.sessionStorage.getItem("AmbulanceID");
-
-
-  const [Ambulance, setAmbulance] = useState([]);
+  const [Ambulance, setAmbulance] = useState([])
 
   const getRequest = () => {
     fetch(`http://localhost:4000/api/v1/ambulance/${AmbulanceID}`)
-    .then(response => response.json())
-    .then(data => setAmbulance(data))
-    .then(data => console.log(data))
-  };
+      .then(response => response.json())
+      .then(data => setAmbulance(data))
+      .then(data => console.log(data))
+  }
 
   useEffect(() => {
-    getRequest();
-  });
+    getRequest()
+  })
 
-  const history = useHistory();
+  const history = useHistory()
 
-  const UpdateAmbulance =()=>{
+  const UpdateAmbulance = () => {
     if (
-      VNo === "" ||
-      VChassisno === "" ||
-      DName === "" ||
-      DLicence === "" ||
-      DContactno === "" ||
-      Description === ""
+      errors_VNo === "" &&
+      errors_VChassisno === "" &&
+      errors_DName === "" &&
+      errors_DLicence === "" &&
+      errors_DContactno === "" &&
+      errors_Description === ""
     ) {
-      // setLoading(false);
-      alert("Please fill all required field...!");
-    } else {
+      const current = new Date()
+      const date = `${current.getDate()}/${
+        current.getMonth() + 1
+      }/${current.getFullYear()}`
 
-      if (
-        errors_VNo === "" &&
-        errors_VChassisno === "" &&
-        errors_DName === "" &&
-        errors_DLicence === "" &&
-        errors_DContactno === "" &&
-        errors_Description === ""
-      ) {
+      const requestOptions = {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          VNo: VNo ? VNo : Ambulance.VNo,
+          VChassisno: VChassisno ? VChassisno : Ambulance.VChassisno,
+          DName: DName ? DName : Ambulance.DName,
+          DLicence: DLicence ? DLicence : Ambulance.DLicence,
+          DContactno: DContactno ? DContactno : Ambulance.DContactno,
+          Description: Description ? Description : Ambulance.Description,
+          CTime: date,
+          CDate: date,
+        }),
+      }
 
-        const current = new Date();
-        const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
-  
-        const requestOptions = {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            VNo: VNo ? VNo : Ambulance.VNo,
-            VChassisno: VChassisno ? VChassisno : Ambulance.VChassisno,
-            DName: DName ? DName : Ambulance.DName,
-            DLicence: DLicence ? DLicence : Ambulance.DLicence,
-            DContactno: DContactno ? DContactno : Ambulance.DContactno,
-            Description: Description ? Description : Ambulance.Description,          
-            CTime: date,
-            CDate: date
-          })
-        };
-  
-        fetch(`http://localhost:4000/api/v1/ambulance/${AmbulanceID}`, requestOptions)
+      fetch(
+        `http://localhost:4000/api/v1/ambulance/${AmbulanceID}`,
+        requestOptions
+      )
         .then(async response => {
           alert("Your data has been successfully updated...")
-          history.push("/getAllAmbulance");
-        }).catch((err)=>{
-          console.log(err);
+          history.push("/getAllAmbulance")
+        })
+        .catch(err => {
+          console.log(err)
           alert("Sorry, Something Error...")
         })
-
     } else {
       swal("Warning!", "Please Enter a valid Input...!", "warning")
     }
   }
 
-  }
-
-   
-  const textVNoInput = e => {    
+  const textVNoInput = e => {
     var letters = /^[A-Za-z0-9 -]+$/
 
     if (e.match(letters)) {
@@ -127,7 +108,9 @@ const UpdateAmbulance = () => {
     } else if (e === "") {
       seterrors_VChassisno("Please Enter the Vehicle Chassis Number")
     } else {
-      seterrors_VChassisno("Please Enter Valid and Correctly Formated Vehicle Chassis Number")
+      seterrors_VChassisno(
+        "Please Enter Valid and Correctly Formated Vehicle Chassis Number"
+      )
     }
   }
 
@@ -151,7 +134,9 @@ const UpdateAmbulance = () => {
     } else if (e === "") {
       seterrors_DLicence("Please Enter the Driver Licence")
     } else {
-      seterrors_DLicence("Please Enter Valid and Correctly Formated Driver Licence")
+      seterrors_DLicence(
+        "Please Enter Valid and Correctly Formated Driver Licence"
+      )
     }
   }
 
@@ -162,21 +147,20 @@ const UpdateAmbulance = () => {
       seterrors_DContactno("")
     } else if (e === "") {
       seterrors_DContactno("Please Enter the Driver Contact Number")
-    }else {
+    } else {
       seterrors_DContactno("Contact No should be less than 10 digits")
     }
   }
 
-  const textDescriptionInput = e => {    
+  const textDescriptionInput = e => {
     var letters = /^[A-Za-z0-9 ]+$/
 
-    var arr = e.split(' ');
+    var arr = e.split(" ")
 
-  
     if (e.match(letters)) {
       setDescription(e)
       seterrors_Description("")
-    }  else if(arr.length > 2) {
+    } else if (arr.length > 2) {
       seterrors_Description("Exceed the Word Count")
     } else if (e === "") {
       seterrors_Description("Please Enter the Description")
@@ -184,7 +168,7 @@ const UpdateAmbulance = () => {
       seterrors_Description("Please Enter a valid Input")
     }
   }
-  
+
   return (
     <React.Fragment>
       <div className="page-content">
@@ -192,12 +176,15 @@ const UpdateAmbulance = () => {
           <title>Update Ambulance</title>
         </MetaTags>
         <Container fluid={true}>
-          <Breadcrumbs maintitle="Veltrix" title="Form" breadcrumbItem="Update Ambulance Details" />
+          <Breadcrumbs
+            maintitle="Veltrix"
+            title="Form"
+            breadcrumbItem="Update Ambulance Details"
+          />
           <Row>
             <Col>
               <Card>
                 <CardBody>
-
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
@@ -206,11 +193,12 @@ const UpdateAmbulance = () => {
                       Vehicle No
                     </label>
                     <div className="col-md-10">
-                      <input maxlength="8"
+                      <input
+                        maxlength="8"
                         className="form-control"
                         type="text"
                         defaultValue={Ambulance.VNo}
-                        onChange={(e) => textVNoInput(e.target.value)}
+                        onChange={e => textVNoInput(e.target.value)}
                         placeholder="Vehicle No: ex - PA-7890"
                       />
                       {errors_VNo ? (
@@ -228,11 +216,12 @@ const UpdateAmbulance = () => {
                       Vehicle Chassis No
                     </label>
                     <div className="col-md-10">
-                      <input maxlength="17"
+                      <input
+                        maxlength="17"
                         className="form-control"
                         type="text"
                         defaultValue={Ambulance.VChassisno}
-                        onChange={(e) => textVChassisnoInput(e.target.value)}
+                        onChange={e => textVChassisnoInput(e.target.value)}
                         placeholder="Vehicle Chassis No"
                       />
                       {errors_VChassisno ? (
@@ -254,7 +243,7 @@ const UpdateAmbulance = () => {
                         className="form-control"
                         type="text"
                         defaultValue={Ambulance.DName}
-                        onChange={(e) => textDNameInput(e.target.value)}
+                        onChange={e => textDNameInput(e.target.value)}
                         placeholder="Driver Name"
                       />
                       {errors_DName ? (
@@ -272,11 +261,12 @@ const UpdateAmbulance = () => {
                       Driver's Licence No
                     </label>
                     <div className="col-md-10">
-                      <input  maxlength="16"
+                      <input
+                        maxlength="16"
                         className="form-control"
                         type="text"
                         defaultValue={Ambulance.DLicence}
-                        onChange={(e) => textDLicenceInput(e.target.value)}
+                        onChange={e => textDLicenceInput(e.target.value)}
                         placeholder="Driver's Licence No"
                       />
                       {errors_DLicence ? (
@@ -294,11 +284,12 @@ const UpdateAmbulance = () => {
                       Driver Contact No
                     </label>
                     <div className="col-md-10">
-                      <input  maxlength="10"
+                      <input
+                        maxlength="10"
                         className="form-control"
                         type="text"
                         defaultValue={Ambulance.DContactno}
-                        onChange={(e) => textDContactnoInput(e.target.value)}
+                        onChange={e => textDContactnoInput(e.target.value)}
                         placeholder="Driver Contact No"
                       />
                       {errors_DContactno ? (
@@ -320,8 +311,8 @@ const UpdateAmbulance = () => {
                         className="form-control"
                         type="text"
                         defaultValue={Ambulance.Description}
-                        onChange={(e) => textDescriptionInput(e.target.value)}
-                        placeholder="Maximum Word Count 200"
+                        onChange={e => textDescriptionInput(e.target.value)}
+                        placeholder="Enter Description"
                       />
                       {errors_Description ? (
                         <span style={{ color: "red", fontSize: 12 }}>
@@ -330,7 +321,7 @@ const UpdateAmbulance = () => {
                       ) : null}
                     </div>
                   </Row>
-                  
+
                   <Row className="mb-3">
                     <label
                       htmlFor="example-text-input"
@@ -340,23 +331,21 @@ const UpdateAmbulance = () => {
                     </label>
                     <div className="col-md-10">
                       <center>
-                    <Button
-                      block
-                      color="info"
-                      outline
-                      onClick={UpdateAmbulance}
-                    >
-                      Update Ambulance
-                    </Button>
-                    </center>
+                        <Button
+                          block
+                          color="info"
+                          outline
+                          onClick={UpdateAmbulance}
+                        >
+                          Update Ambulance
+                        </Button>
+                      </center>
                     </div>
                   </Row>
                 </CardBody>
-                
               </Card>
             </Col>
           </Row>
-
         </Container>
       </div>
     </React.Fragment>
