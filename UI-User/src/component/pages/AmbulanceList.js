@@ -42,9 +42,13 @@ function AmbulanceList() {
 
     const history = useHistory();
 
-    const getAllAmbulanceData = (ID) =>{
+    const getAllAmbulanceData = (VNo, ChassisNo, DLicence, Description) =>{
         setModalShow(true)
-        window.sessionStorage.setItem("AmbulanceID", ID);
+
+        window.sessionStorage.setItem("VNo", VNo);
+        window.sessionStorage.setItem("ChassisNo", ChassisNo);
+        window.sessionStorage.setItem("DLicence", DLicence);
+        window.sessionStorage.setItem("Description", Description);
     }
 
     const getRequest = () => {
@@ -106,7 +110,7 @@ function AmbulanceList() {
 
                                         <div className="col-3 mt-5">
                                             <div className="ui link cards">
-                                            <div className="card"  onClick={() => getAllAmbulanceData(item._id)}>
+                                            <div className="card"  onClick={() => getAllAmbulanceData(item.VNo,item.VChassisno,item.DLicence,item.Description)}>
                                                 <div className="image m-5">
                                                 <img src="https://img.freepik.com/free-vector/emergency-ambulance-white-background_1308-101723.jpg?t=st=1662725835~exp=1662726435~hmac=a88d1ef18fb0f02d3b9f6b2ab6f910969b7fb9e728bccd9fa80271b5ac8f49af" />
                                                 </div>
