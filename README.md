@@ -26,15 +26,15 @@ several system access and editing restrictions should be developed to prevent un
 ## Technologies
 
 MERN Stack
-- [Front-End : React]
-- [Back-End  : ExpressJS, NodeJS]
-- [IDE  : VS Code]
+- Front-End : React
+- Back-End  : ExpressJS, NodeJS
+- IDE  : VS Code
 
 Other Tools
-- [Version Controlling  : GitHub]
-- [Project Management: Azure Board]
-- [Code Quality  : SonarQube]
-- [Testing  : Selenium]
+- Version Controlling  : GitHub
+- Project Management: Azure Board
+- Code Quality  : SonarQube
+- Testing  : Selenium
 
 Initially appeared on
 [gist](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2). But the page cannot open anymore so that is why I have moved it here.
@@ -48,8 +48,8 @@ for notes on deploying the project on a live system.
 ### Prerequisites
 
 Requirements for the software and other tools to build, test and push 
-- [Install and Setup the VS code ]
-- [Node should be installed to the machine]
+- Install and Setup the VS code 
+- Node should be installed to the machine
 
 ### Installing
 
