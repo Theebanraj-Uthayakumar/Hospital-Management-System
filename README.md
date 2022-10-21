@@ -71,6 +71,6 @@ Run npm start for each folder. Run in the terminal
   - **Kanishakr** -
     [IT20226732](https://github.com/IT20226732)
   - **Chanul** -
-    [Chanuldg](https://github.com/Chanuldg)
+    [ChanulDeeraka](https://github.com/ChanulDeeraka)
   - **Ananthan** -
     [yoganathanAnanthan](https://github.com/yoganathanAnanthan)
