@@ -70,7 +70,6 @@ Run npm start for each folder. Run in the terminal
     Hospital-Management-System\Back-End-Service> npm start
     Hospital-Management-System\UI-Admin> npm start
     Hospital-Management-System\UI-User> npm start
-    until finished
 
 ## Developers
 
