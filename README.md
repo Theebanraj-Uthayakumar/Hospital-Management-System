@@ -13,3 +13,31 @@ Admin or the hospital head can generate the reports about doctor's details, camp
 operation details if he or she wants. This web application can overcome many problems faced in hospital operations.
 During system development, several system access and editing restrictions should be developed to prevent
 unauthorized access to system data.
+
+## Group Details
+<h3>Group ID - SER056</h3>
+1. IT20218980 - Gunathilake C.D <br>
+2. IT20226732 - Kanishkar R <br>
+3. IT20249816 - Ananthan Y. <br>
+4. IT19063324 - Theebanraj U. <br>
+
+## Technologies
+<h4>MERN Stack<h4>
+<ul>
+  <li> Front-End: React </li>
+  <li> Back-End : ExpressJS, NodeJS </li>
+  <li> IDE: VS Code </li>
+ </ul>
+ 
+ <h4> Other Tools </h4>
+ <ul>
+  <li> Version Controlling : GitHub </li>
+  <li> Project Management: Azure Board </li>
+  <li> Code Quality : SonarQube </li>
+  <li> Testing : Selenium </li>
+ </ul>
+ 
+ ## Getting Started
+ 
+ <h3> Prerequisites </h3>
+ 
